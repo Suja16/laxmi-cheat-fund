@@ -1,0 +1,72 @@
+{
+  "7d": {
+    "totalTrades": 134,
+    "profitableTrades": 66,
+    "losingTrades": 68,
+    "winRate": 49.25373134328358,
+    "avgProfit": 1617858.4394026191,
+    "avgLoss": -35576.724658457184,
+    "maxProfit": 44820346.929901265,
+    "maxLoss": -1726833.3620074845,
+    "avgSlippage": 0.005350864857945856,
+    "avgGasCost": 1.5653516186016243,
+    "mevAttacks": 13,
+    "mevAttackRate": 9.701492537313433
+  },
+  "14d": {
+    "totalTrades": 135,
+    "profitableTrades": 62,
+    "losingTrades": 73,
+    "winRate": 45.925925925925924,
+    "avgProfit": 1725443.9796002808,
+    "avgLoss": -20831.2836418213,
+    "maxProfit": 41124479.5707616,
+    "maxLoss": -537655.78379512,
+    "avgSlippage": 0.005759859908099728,
+    "avgGasCost": 1.5576658048605914,
+    "mevAttacks": 13,
+    "mevAttackRate": 9.62962962962963
+  },
+  "30d": {
+    "totalTrades": 133,
+    "profitableTrades": 71,
+    "losingTrades": 62,
+    "winRate": 53.383458646616546,
+    "avgProfit": 1464599.1991589991,
+    "avgLoss": -23591.44411473662,
+    "maxProfit": 41278743.376134716,
+    "maxLoss": -622131.1479992494,
+    "avgSlippage": 0.0052059165176523555,
+    "avgGasCost": 1.5958429686693094,
+    "mevAttacks": 20,
+    "mevAttackRate": 15.037593984962406
+  },
+  "90d": {
+    "totalTrades": 130,
+    "profitableTrades": 71,
+    "losingTrades": 58,
+    "winRate": 54.61538461538461,
+    "avgProfit": 1397229.7654402773,
+    "avgLoss": -24375.477205665895,
+    "maxProfit": 41327355.81425341,
+    "maxLoss": -306645.5485554875,
+    "avgSlippage": 0.005167556748477464,
+    "avgGasCost": 1.5988020619965915,
+    "mevAttacks": 12,
+    "mevAttackRate": 9.230769230769232
+  },
+  "180d": {
+    "totalTrades": 129,
+    "profitableTrades": 59,
+    "losingTrades": 70,
+    "winRate": 45.73643410852713,
+    "avgProfit": 1833933.4804346855,
+    "avgLoss": -12960.716841843629,
+    "maxProfit": 41402255.20773515,
+    "maxLoss": -247056.31525841932,
+    "avgSlippage": 0.00540609118346453,
+    "avgGasCost": 1.5387044108664572,
+    "mevAttacks": 19,
+    "mevAttackRate": 14.728682170542637
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "7d": {
+    "avgMaxDrawdown": 38.53265213962709,
+    "maxDrawdown": 75,
+    "avgSharpeRatio": 0.040859322165825475,
+    "bestSharpeRatio": 0.17024303581311998,
+    "avgWinRate": 51.97210197210197,
+    "bestWinRate": 100
+  },
+  "14d": {
+    "avgMaxDrawdown": 42.16139130484209,
+    "maxDrawdown": 75,
+    "avgSharpeRatio": 0.044283890671615644,
+    "bestSharpeRatio": 0.2431760912418696,
+    "avgWinRate": 48.075998075998065,
+    "bestWinRate": 100
+  },
+  "30d": {
+    "avgMaxDrawdown": 55.81386328083641,
+    "maxDrawdown": 83.33333333333334,
+    "avgSharpeRatio": 0.04920376237494628,
+    "bestSharpeRatio": 0.2912383430635119,
+    "avgWinRate": 54.27609427609427,
+    "bestWinRate": 100
+  },
+  "90d": {
+    "avgMaxDrawdown": 67.51507649263263,
+    "maxDrawdown": 83.33333333333334,
+    "avgSharpeRatio": 0.06335260882743486,
+    "bestSharpeRatio": 0.32923544328615223,
+    "avgWinRate": 54.85113035113035,
+    "bestWinRate": 87.5
+  },
+  "180d": {
+    "avgMaxDrawdown": 71.06433354195796,
+    "maxDrawdown": 83.33333333333334,
+    "avgSharpeRatio": -0.02185038729242034,
+    "bestSharpeRatio": 0.17533322780019647,
+    "avgWinRate": 48.03367003367004,
+    "bestWinRate": 87.5
+  }
+}
