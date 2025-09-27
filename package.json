@@ -1,0 +1,40 @@
+{
+  "name": "laxmi-cheat-fund",
+  "version": "1.0.0",
+  "description": "A collection of trading strategies and bots for cryptocurrency markets.",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node --loader ts-node/esm src/index.ts",
+    "start:js": "node start.js",
+    "orchestrator": "node --loader ts-node/esm orchestrator-example.js",
+    "build": "tsc",
+    "build:start": "npm run build && node dist/index.js",
+    "test": "node --loader ts-node/esm src/index.ts",
+    "dev": "node --loader ts-node/esm --watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suja16/laxmi-cheat-fund.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Suja16/laxmi-cheat-fund/issues"
+  },
+  "homepage": "https://github.com/Suja16/laxmi-cheat-fund#readme",
+  "dependencies": {
+    "@1inch/limit-order-sdk": "^5.2.0",
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.2",
+    "ethers": "^6.15.0",
+    "readline": "^1.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/readline-sync": "^1.4.8"
+  }
+}
