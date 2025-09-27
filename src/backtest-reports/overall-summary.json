@@ -1,0 +1,10 @@
+{
+  "totalTests": 45,
+  "avgReturn": 0.01883699820912011,
+  "bestReturn": 0.2578235126485724,
+  "worstReturn": -0.0000491868231666034,
+  "avgTrades": 0.37777777777777777,
+  "avgSharpeRatio": 0.10268972981312802,
+  "avgMaxDrawdown": 0.000033129660853542354,
+  "avgWinRate": 13.185185185185183
+}

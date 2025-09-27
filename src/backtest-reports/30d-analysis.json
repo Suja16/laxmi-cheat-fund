@@ -1,0 +1,227 @@
+{
+  "timeframe": 30,
+  "avgReturn": 0,
+  "avgTrades": 0,
+  "bestResult": {
+    "strategy": "Conservative",
+    "asset": "ETH/USDC",
+    "initialValue": 1001286.4423038586,
+    "finalValue": 1001286.4423038586,
+    "totalReturn": 0,
+    "netReturn": 0,
+    "totalProfit": 0,
+    "totalGasCosts": 0,
+    "netProfit": 0,
+    "totalTrades": 0,
+    "avgProfitPerTrade": 0,
+    "maxDrawdown": 0,
+    "sharpeRatio": 0,
+    "winRate": 0,
+    "finalBalance": {
+      "base": 1000,
+      "quote": 1000
+    },
+    "filledOrders": 0,
+    "timeframe": 30
+  },
+  "allResults": [
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "initialValue": 1001286.4423038586,
+      "finalValue": 1001286.4423038586,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "initialValue": 1001001.1330433545,
+      "finalValue": 1001001.1330433545,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "initialValue": 1000571.4713984292,
+      "finalValue": 1000571.4713984292,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "initialValue": 1000885.4149278192,
+      "finalValue": 1000885.4149278192,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "initialValue": 1000937.4807655263,
+      "finalValue": 1000937.4807655263,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "initialValue": 1001198.5546299554,
+      "finalValue": 1001198.5546299554,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "initialValue": 1000889.0305151723,
+      "finalValue": 1000889.0305151723,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "initialValue": 1001390.6323582279,
+      "finalValue": 1001390.6323582279,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "initialValue": 1000796.9808156377,
+      "finalValue": 1000796.9808156377,
+      "totalReturn": 0,
+      "netReturn": 0,
+      "totalProfit": 0,
+      "totalGasCosts": 0,
+      "netProfit": 0,
+      "totalTrades": 0,
+      "avgProfitPerTrade": 0,
+      "maxDrawdown": 0,
+      "sharpeRatio": 0,
+      "winRate": 0,
+      "finalBalance": {
+        "base": 1000,
+        "quote": 1000
+      },
+      "filledOrders": 0,
+      "timeframe": 30
+    }
+  ]
+}
