@@ -4,13 +4,21 @@
   "description": "A collection of trading strategies and bots for cryptocurrency markets.",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node --loader ts-node/esm src/index.ts",
-    "start:js": "node start.js",
-    "orchestrator": "node --loader ts-node/esm orchestrator-example.js",
+    "start": "node --loader ts-node/esm src/simple-cli.ts",
+    "orchestrator": "node --loader ts-node/esm src/clean-orchestrator.ts",
+    "backtest": "node --loader ts-node/esm src/backtester.ts",
+    "backtest:js": "node src/grid-backtester.js",
+    "backtest:trades": "node src/grid-backtester.js",
+    "backtest:cli": "node src/backtester-cli.js",
+    "backtest:minimal": "node src/minimal-backtester.js",
+    "backtest:test": "node src/test-backtester.js",
+    "pyth:test": "node src/pyth-test.js",
+    "pyth:grid": "node src/pyth-grid-bot.js",
+    "test": "node --loader ts-node/esm src/test-implementation.ts",
+    "test:config": "node --loader ts-node/esm src/test-config.ts",
     "build": "tsc",
-    "build:start": "npm run build && node dist/index.js",
-    "test": "node --loader ts-node/esm src/index.ts",
-    "dev": "node --loader ts-node/esm --watch src/index.ts"
+    "build:start": "npm run build && node dist/simple-cli.js",
+    "dev": "node --loader ts-node/esm --watch src/simple-cli.ts"
   },
   "repository": {
     "type": "git",
