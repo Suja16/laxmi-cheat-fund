@@ -899,7 +899,6 @@ export class VolatilityGridStrategy {
           this.config.quoteTokenDecimals
         );
       }
-
       console.log(`🔄 Creating opposite ${newOrderType.toLowerCase()} order at level ${filledOrder.gridLevel}`);
 
       const newOrder = await this.createSingleGridOrder(newAmount, newOrderType, filledOrder.gridLevel, newTargetPrice);

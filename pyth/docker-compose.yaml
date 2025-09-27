@@ -1,0 +1,44 @@
+
+services:
+  price-pusher:
+    # Use this to build the price pusher from source.
+    #
+    # Please note that the docker build from source only works in x86_64 platforms
+    # and doesn't work on arm platforms (like Apple M1/M2).
+    #
+    # build:
+    #   context: ../..
+    #   dockerfile: Dockerfile.node
+    #   args:
+    #     package: "@pythnetwork/price-pusher"
+
+    # Replace <version> with the latest released image of the price pusher from here:
+    # https://gallery.ecr.aws/pyth-network/xc-price-pusher
+    image: public.ecr.aws/pyth-network/xc-price-pusher:v9.3.6
+    restart: always
+    command:
+      - "npm"
+      - "run"
+      - "start"
+      - "--"
+      - "evm"
+      - "--endpoint"
+      # Replace this with RPC endpoint URL for the EVM network.
+      - "wss://base-sepolia.g.alchemy.com/v2/wUXGK5JxK4qNpv43T8ihk"
+      - "--mnemonic-file"
+      - "/mnemonic"
+      # Replace this with the address of the Pyth contract on the EVM network.
+      - "--pyth-contract-address"
+      - "0xA2aa501b19aff244D90cc15a4Cf739D2725B5729"
+      - "--price-service-endpoint"
+      - "https://hermes.pyth.network" # Replace this with a private Hermes RPC for more reliability
+      - "--price-config-file"
+      - "/price_config"
+    configs:
+      - mnemonic
+      - price_config
+configs:
+  mnemonic:
+    file: ./mnemonic.txt # Replace this with the path to the mnemonic file
+  price_config:
+    file: ./price-config.yaml # Replace this with the path to the price configuration file
