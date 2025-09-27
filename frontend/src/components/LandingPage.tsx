@@ -1,14 +1,14 @@
-import { WalletButton } from './WalletButton'
-import { 
-  ChartBarIcon, 
-  ShieldCheckIcon, 
-  CogIcon, 
+import { WalletButton } from "./WalletButton";
+import {
+  ChartBarIcon,
+  ShieldCheckIcon,
+  CogIcon,
   CurrencyDollarIcon,
   ArrowTrendingUpIcon,
   LockClosedIcon,
   SparklesIcon,
-  RocketLaunchIcon
-} from '@heroicons/react/24/outline'
+  RocketLaunchIcon,
+} from "@heroicons/react/24/outline";
 
 export default function LandingPage() {
   return (
@@ -20,7 +20,9 @@ export default function LandingPage() {
             <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
               <span className="text-black font-bold text-lg">L</span>
             </div>
-            <span className="text-2xl font-bold text-white">Laxmi Cheat Fund</span>
+            <span className="text-2xl font-bold text-white">
+              Laxmi Cheat Fund
+            </span>
           </div>
           <WalletButton />
         </div>
@@ -40,11 +42,12 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Set and forget your crypto assets. Our automated vaults execute sophisticated 
-              hedge fund strategies while you maintain full custody of your funds.
+              Set and forget your crypto assets. Our automated vaults execute
+              sophisticated hedge fund strategies while you maintain full
+              custody of your funds.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-lg rounded-xl hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200 shadow-2xl hover:shadow-yellow-400/25">
               Start Earning Now
@@ -57,15 +60,21 @@ export default function LandingPage() {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">$2.4M+</div>
+              <div className="text-3xl font-bold text-yellow-400 mb-2">
+                $2.4M+
+              </div>
               <div className="text-gray-300">Total Value Locked</div>
             </div>
             <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">24.7%</div>
+              <div className="text-3xl font-bold text-yellow-400 mb-2">
+                24.7%
+              </div>
               <div className="text-gray-300">Average APY</div>
             </div>
             <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">1,200+</div>
+              <div className="text-3xl font-bold text-yellow-400 mb-2">
+                1,200+
+              </div>
               <div className="text-gray-300">Active Users</div>
             </div>
           </div>
@@ -80,8 +89,8 @@ export default function LandingPage() {
               The Problem We Solve
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Retail investors lack access to sophisticated trading strategies that institutional 
-              players use to generate consistent returns.
+              Retail investors lack access to sophisticated trading strategies
+              that institutional players use to generate consistent returns.
             </p>
           </div>
 
@@ -92,8 +101,13 @@ export default function LandingPage() {
                   <span className="text-red-400 text-xl">❌</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Complex Strategies</h3>
-                  <p className="text-gray-300">Institutional strategies require deep technical knowledge and constant monitoring.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Complex Strategies
+                  </h3>
+                  <p className="text-gray-300">
+                    Institutional strategies require deep technical knowledge
+                    and constant monitoring.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -101,8 +115,13 @@ export default function LandingPage() {
                   <span className="text-red-400 text-xl">❌</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">High Barriers</h3>
-                  <p className="text-gray-300">Minimum investment requirements and exclusive access prevent retail participation.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    High Barriers
+                  </h3>
+                  <p className="text-gray-300">
+                    Minimum investment requirements and exclusive access prevent
+                    retail participation.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -110,14 +129,20 @@ export default function LandingPage() {
                   <span className="text-red-400 text-xl">❌</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Custody Risks</h3>
-                  <p className="text-gray-300">Traditional funds require giving up custody of your assets.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Custody Risks
+                  </h3>
+                  <p className="text-gray-300">
+                    Traditional funds require giving up custody of your assets.
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-gray-900/50 to-black/50 rounded-3xl p-8 border border-yellow-400/20">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Our Solution</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                Our Solution
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
@@ -149,126 +174,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Strategy Vaults Section */}
-      <section className="px-6 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Strategy Vaults
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Choose from our battle-tested strategies designed to generate consistent returns 
-              in any market condition.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Volatility Vault */}
-            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 rounded-2xl p-8 border border-yellow-400/20 hover:border-yellow-400/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-yellow-400/20 rounded-lg flex items-center justify-center">
-                  <ChartBarIcon className="w-6 h-6 text-yellow-400" />
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-yellow-400">18.5%</div>
-                  <div className="text-sm text-gray-400">APY</div>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Volatility Vault</h3>
-              <p className="text-gray-300 mb-6">
-                Grid & DCA trading strategy that automatically buys low and sells high during market fluctuations.
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Risk Level:</span>
-                  <span className="text-yellow-400">Medium</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Min Deposit:</span>
-                  <span className="text-white">$100</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">TVL:</span>
-                  <span className="text-white">$1.2M</span>
-                </div>
-              </div>
-              <button className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200">
-                Deposit Now
-              </button>
-            </div>
-
-            {/* Yield Vault */}
-            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 rounded-2xl p-8 border border-yellow-400/20 hover:border-yellow-400/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-yellow-400/20 rounded-lg flex items-center justify-center">
-                  <CurrencyDollarIcon className="w-6 h-6 text-yellow-400" />
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-yellow-400">24.7%</div>
-                  <div className="text-sm text-gray-400">APY</div>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Yield Vault</h3>
-              <p className="text-gray-300 mb-6">
-                Funding rate arbitrage strategy that generates market-neutral yield from perpetuals market inefficiencies.
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Risk Level:</span>
-                  <span className="text-yellow-400">Low</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Min Deposit:</span>
-                  <span className="text-white">$50</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">TVL:</span>
-                  <span className="text-white">$800K</span>
-                </div>
-              </div>
-              <button className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200">
-                Deposit Now
-              </button>
-            </div>
-
-            {/* Momentum Vault */}
-            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 rounded-2xl p-8 border border-yellow-400/20 hover:border-yellow-400/50 transition-all duration-300">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-yellow-400/20 rounded-lg flex items-center justify-center">
-                  <ArrowTrendingUpIcon className="w-6 h-6 text-yellow-400" />
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-yellow-400">31.2%</div>
-                  <div className="text-sm text-gray-400">APY</div>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Momentum Vault</h3>
-              <p className="text-gray-300 mb-6">
-                Advanced momentum trading strategy that captures trends across multiple timeframes and assets.
-              </p>
-              <div className="space-y-2 mb-6">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Risk Level:</span>
-                  <span className="text-yellow-400">High</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Min Deposit:</span>
-                  <span className="text-white">$500</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">TVL:</span>
-                  <span className="text-white">$400K</span>
-                </div>
-              </div>
-              <button className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200">
-                Deposit Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
       <section className="px-6 py-20 bg-black/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -282,24 +187,39 @@ export default function LandingPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <LockClosedIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Non-Custodial</h3>
-              <p className="text-gray-300">You maintain full control and ownership of your assets at all times.</p>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Non-Custodial
+              </h3>
+              <p className="text-gray-300">
+                You maintain full control and ownership of your assets at all
+                times.
+              </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <CogIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Fully Automated</h3>
-              <p className="text-gray-300">Set it and forget it. Our bots handle all trading execution 24/7.</p>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Fully Automated
+              </h3>
+              <p className="text-gray-300">
+                Set it and forget it. Our bots handle all trading execution
+                24/7.
+              </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <ShieldCheckIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Battle-Tested</h3>
-              <p className="text-gray-300">Strategies proven in live markets with institutional-grade infrastructure.</p>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Battle-Tested
+              </h3>
+              <p className="text-gray-300">
+                Strategies proven in live markets with institutional-grade
+                infrastructure.
+              </p>
             </div>
 
             <div className="text-center">
@@ -307,7 +227,9 @@ export default function LandingPage() {
                 <SparklesIcon className="w-8 h-8 text-black" />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Transparent</h3>
-              <p className="text-gray-300">All strategy logic is open source and auditable on-chain.</p>
+              <p className="text-gray-300">
+                All strategy logic is open source and auditable on-chain.
+              </p>
             </div>
           </div>
         </div>
@@ -322,7 +244,8 @@ export default function LandingPage() {
               Ready to Start Earning?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Join thousands of users who are already earning with our automated strategies.
+              Join thousands of users who are already earning with our automated
+              strategies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-lg rounded-xl hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200 shadow-2xl hover:shadow-yellow-400/25">
@@ -344,7 +267,9 @@ export default function LandingPage() {
               <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-lg">L</span>
               </div>
-              <span className="text-xl font-bold text-white">Laxmi Cheat Fund</span>
+              <span className="text-xl font-bold text-white">
+                Laxmi Cheat Fund
+              </span>
             </div>
             <div className="text-gray-400 text-center md:text-right">
               <p>&copy; 2024 Laxmi Cheat Fund. All rights reserved.</p>
@@ -354,5 +279,5 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
