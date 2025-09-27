@@ -135,7 +135,7 @@
 /**
  * 1inch API endpoints and addresses
  */
-export const LIMIT_ORDER_PROTOCOL_ADDRESSES = {
+const LIMIT_ORDER_PROTOCOL_ADDRESSES = {
   1: '0x1111111254EEB25477B68fb85Ed929f73A960582', // Ethereum
   56: '0x1111111254EEB25477B68fb85Ed929f73A960582', // BSC
   137: '0x1111111254EEB25477B68fb85Ed929f73A960582', // Polygon
@@ -146,13 +146,13 @@ export const LIMIT_ORDER_PROTOCOL_ADDRESSES = {
 /**
  * 1inch API base URLs
  */
-export const SWAP_API_BASE = (chainId) => `https://api.1inch.io/v5.2/${chainId}`;
-export const LIMIT_ORDER_API_BASE = (chainId) => `https://limit-order.1inch.io/v3.0/${chainId}`;
+const SWAP_API_BASE = (chainId) => `https://api.1inch.io/v5.2/${chainId}`;
+const LIMIT_ORDER_API_BASE = (chainId) => `https://limit-order.1inch.io/v3.0/${chainId}`;
 
 /**
  * Default token addresses for Base chain
  */
-export const DEFAULT_TOKENS = {
+const DEFAULT_TOKENS = {
   BASE: {
     WETH: '0x4200000000000000000000000000000000000006',
     USDC: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
@@ -164,7 +164,7 @@ export const DEFAULT_TOKENS = {
 /**
  * Grid order types
  */
-export const GridOrderType = {
+const GridOrderType = {
   BUY: 'BUY',
   SELL: 'SELL'
 };
@@ -172,7 +172,7 @@ export const GridOrderType = {
 /**
  * Order statuses
  */
-export const OrderStatus = {
+const OrderStatus = {
   ACTIVE: 'ACTIVE',
   FILLED: 'FILLED',
   PARTIALLY_FILLED: 'PARTIALLY_FILLED',
@@ -187,7 +187,7 @@ export const OrderStatus = {
  * @param {string} address - Token address to validate
  * @returns {boolean} - True if valid address
  */
-export function isValidAddress(address) {
+function isValidAddress(address) {
   return typeof address === 'string' && address.length === 42 && address.startsWith('0x');
 }
 
@@ -197,7 +197,7 @@ export function isValidAddress(address) {
  * @param {number} decimals - Token decimals
  * @returns {string} - Formatted amount
  */
-export function formatTokenAmount(amount, decimals) {
+function formatTokenAmount(amount, decimals) {
   const num = typeof amount === 'string' ? parseFloat(amount) : amount;
   return num.toFixed(decimals);
 }
@@ -208,7 +208,7 @@ export function formatTokenAmount(amount, decimals) {
  * @param {number} decimals - Token decimals
  * @returns {number} - Parsed amount
  */
-export function parseTokenAmount(amount, decimals) {
+function parseTokenAmount(amount, decimals) {
   return parseFloat(amount) * Math.pow(10, decimals);
 }
 
@@ -218,7 +218,7 @@ export function parseTokenAmount(amount, decimals) {
  * @param {number} newPrice - New price
  * @returns {number} - Price change percentage
  */
-export function calculatePriceChange(oldPrice, newPrice) {
+function calculatePriceChange(oldPrice, newPrice) {
   return ((newPrice - oldPrice) / oldPrice) * 100;
 }
 
@@ -227,7 +227,7 @@ export function calculatePriceChange(oldPrice, newPrice) {
  * @param {number} max - Maximum value
  * @returns {number} - Random nonce
  */
-export function generateNonce(max = 2**40 - 1) {
+function generateNonce(max = 2 ** 40 - 1) {
   return Math.floor(Math.random() * max);
 }
 
@@ -238,12 +238,12 @@ export function generateNonce(max = 2**40 - 1) {
  * @param {any} obj - Object to check
  * @returns {boolean} - True if TokenInfo
  */
-export function isTokenInfo(obj) {
-  return obj && 
-         typeof obj.address === 'string' &&
-         typeof obj.symbol === 'string' &&
-         typeof obj.decimals === 'number' &&
-         typeof obj.name === 'string';
+function isTokenInfo(obj) {
+  return obj &&
+    typeof obj.address === 'string' &&
+    typeof obj.symbol === 'string' &&
+    typeof obj.decimals === 'number' &&
+    typeof obj.name === 'string';
 }
 
 /**
@@ -251,14 +251,14 @@ export function isTokenInfo(obj) {
  * @param {any} obj - Object to check
  * @returns {boolean} - True if GridConfig
  */
-export function isGridConfig(obj) {
+function isGridConfig(obj) {
   return obj &&
-         typeof obj.name === 'string' &&
-         typeof obj.gridLevels === 'number' &&
-         typeof obj.priceRange === 'number' &&
-         typeof obj.profitTarget === 'number' &&
-         typeof obj.baseAmount === 'number' &&
-         typeof obj.quoteAmount === 'number';
+    typeof obj.name === 'string' &&
+    typeof obj.gridLevels === 'number' &&
+    typeof obj.priceRange === 'number' &&
+    typeof obj.profitTarget === 'number' &&
+    typeof obj.baseAmount === 'number' &&
+    typeof obj.quoteAmount === 'number';
 }
 
 /**
@@ -266,15 +266,15 @@ export function isGridConfig(obj) {
  * @param {any} obj - Object to check
  * @returns {boolean} - True if AssetConfig
  */
-export function isAssetConfig(obj) {
+function isAssetConfig(obj) {
   return obj &&
-         typeof obj.symbol === 'string' &&
-         typeof obj.baseToken === 'string' &&
-         typeof obj.quoteToken === 'string' &&
-         typeof obj.baseDecimals === 'number' &&
-         typeof obj.quoteDecimals === 'number' &&
-         typeof obj.volatility === 'number' &&
-         typeof obj.trend === 'number';
+    typeof obj.symbol === 'string' &&
+    typeof obj.baseToken === 'string' &&
+    typeof obj.quoteToken === 'string' &&
+    typeof obj.baseDecimals === 'number' &&
+    typeof obj.quoteDecimals === 'number' &&
+    typeof obj.volatility === 'number' &&
+    typeof obj.trend === 'number';
 }
 
 // ============ DEFAULT CONFIGURATIONS ============
@@ -282,7 +282,7 @@ export function isAssetConfig(obj) {
 /**
  * Default grid strategy configurations
  */
-export const DEFAULT_GRID_CONFIGS = [
+const DEFAULT_GRID_CONFIGS = [
   {
     name: 'Conservative',
     gridLevels: 10,
@@ -312,7 +312,7 @@ export const DEFAULT_GRID_CONFIGS = [
 /**
  * Default asset configurations for backtesting
  */
-export const DEFAULT_ASSET_CONFIGS = [
+const DEFAULT_ASSET_CONFIGS = [
   {
     symbol: 'ETH/USDC',
     baseToken: '0x4200000000000000000000000000000000000006',
@@ -345,12 +345,12 @@ export const DEFAULT_ASSET_CONFIGS = [
 /**
  * Default backtest timeframes
  */
-export const DEFAULT_TIMEFRAMES = [7, 14, 30, 90, 180];
+const DEFAULT_TIMEFRAMES = [7, 14, 30, 90, 180];
 
 /**
  * Pyth price feed IDs for different assets
  */
-export const PYTH_PRICE_FEEDS = {
+const PYTH_PRICE_FEEDS = {
   ETH_USD_STABLE: '0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace',
   ETH_USD_BETA: '0xca80ba6dc32e08d06f1aa886011eed1d77c77be9eb761cc10d72b7d0a2fd57a6',
   BTC_USD_STABLE: '0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43',
@@ -363,7 +363,7 @@ export const PYTH_PRICE_FEEDS = {
 /**
  * Pyth API endpoints
  */
-export const PYTH_ENDPOINTS = {
+const PYTH_ENDPOINTS = {
   REST_BASE: 'https://hermes.pyth.network/v2',
   STREAM_BASE: 'https://hermes.pyth.network/v2',
   LATEST_PRICE: (feedId) => `${PYTH_ENDPOINTS.REST_BASE}/updates/price/latest?ids[]=${feedId}`,
@@ -373,7 +373,7 @@ export const PYTH_ENDPOINTS = {
 /**
  * Price feed configuration
  */
-export const PRICE_FEED_CONFIG = {
+const PRICE_FEED_CONFIG = {
   UPDATE_INTERVAL: 1000, // 1 second
   MAX_RETRIES: 3,
   RETRY_DELAY: 5000, // 5 seconds
@@ -382,15 +382,15 @@ export const PRICE_FEED_CONFIG = {
   MAX_PRICE_CHANGE: 0.1 // 10% max price change per update
 };
 
-// Export all types for JSDoc usage
-export {
-  // Re-export types for documentation
-  TokenInfo,
-  GridConfig,
-  AssetConfig,
-  PriceData,
-  GridLevel,
-  Order,
-  BacktestResult,
-  GridOrderData
-};
+//  all types for JSDoc usage
+//  {
+//   // Re- types for documentation
+//   TokenInfo,
+//   // GridConfig,
+//   // AssetConfig,
+//   PriceData,
+//   // GridLevel,
+//   Order,
+//   // BacktestResult,
+//   GridOrderData
+// };

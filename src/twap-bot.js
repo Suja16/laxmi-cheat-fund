@@ -1,25 +1,23 @@
 #!/usr/bin/env node
 
-import { ethers } from "ethers";
-import axios from "axios";
-import dotenv from "dotenv";
-import express from "express";
-import bodyParser from "body-parser";
-
-import {
+const { ethers } = require("ethers");
+const axios = require("axios");
+const dotenv = require("dotenv");
+const express = require("express");
+const bodyParser = require("body-parser");
+const {
   Api,
   FetchProviderConnector,
   LimitOrder,
   MakerTraits,
-  Address as OneInchAddress,
+  Address: OneInchAddress,
   randBigInt,
-} from "@1inch/limit-order-sdk";
-
-import {
+} = require("@1inch/limit-order-sdk");
+const {
   LIMIT_ORDER_PROTOCOL_ADDRESSES,
   SWAP_API_BASE,
   LIMIT_ORDER_API_BASE,
-} from "./types.js";
+} = require("./types.js");
 
 dotenv.config();
 
@@ -32,24 +30,27 @@ const ERC20_ABI = [
   "function symbol() external view returns (string)",
 ];
 
-const ONEINCH_API_KEY = process.env.ONEINCH_API_KEY;
+const ONEINCH_API_KEY = process.env.ONEINCH_API_KEY || "gC7k3c3RlyaE60cRBll7CYexIHhe78nA";
 const CHAIN_ID = parseInt(process.env.CHAIN_ID || "8453", 10);
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const RPC_URL = process.env.RPC_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "da110f7fbdfdd4ab2a10f4caf0b6dd0a3b8b53aa91592db367b6fab967d54b9c";
+const RPC_URL = process.env.RPC_URL || "wss://base-sepolia.g.alchemy.com/v2/wUXGK5JxK4qNpv43T8ihk";
 const PORT = process.env.PORT || 3000;
 
 if (!PRIVATE_KEY || !RPC_URL || !ONEINCH_API_KEY) {
+  console.log("PRIVATE_KEY:", process.env.PRIVATE_KEY);
+  console.log("RPC_URL:", process.env.RPC_URL);
+  console.log("ONEINCH_API_KEY:", process.env.ONEINCH_API_KEY);s
   throw new Error(
     "Missing critical environment variables: PRIVATE_KEY, RPC_URL, or ONEINCH_API_KEY"
   );
 }
 
 // ✅ This is the core setup for signing with your bot's private key
-const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+const provider = new ethers.JsonRpcProvider(RPC_URL);
 const signer = new ethers.Wallet(PRIVATE_KEY, provider);
 
 // --- The Strategy Class (Your existing logic, largely unchanged) ---
-export class UltraRealisticTWAPStrategy {
+class UltraRealisticTWAPStrategy {
   // ... your entire UltraRealisticTWAPStrategy class code goes here ...
   // ... from constructor(provider, signer) to the final getStrategyStats() method ...
   // NOTE: The interactive `getUserConfiguration` method will no longer be used.
