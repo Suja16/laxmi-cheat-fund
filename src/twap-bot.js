@@ -31,9 +31,9 @@ const ERC20_ABI = [
 ];
 
 const ONEINCH_API_KEY = process.env.ONEINCH_API_KEY || "gC7k3c3RlyaE60cRBll7CYexIHhe78nA";
-const CHAIN_ID = parseInt(process.env.CHAIN_ID || "8453", 10);
+const CHAIN_ID = parseInt(process.env.CHAIN_ID || "84532", 10);
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "da110f7fbdfdd4ab2a10f4caf0b6dd0a3b8b53aa91592db367b6fab967d54b9c";
-const RPC_URL = process.env.RPC_URL || "wss://base-sepolia.g.alchemy.com/v2/wUXGK5JxK4qNpv43T8ihk";
+const RPC_URL = process.env.RPC_URL || "https://base-sepolia.g.alchemy.com/v2/wUXGK5JxK4qNpv43T8ihk";
 const PORT = process.env.PORT || 3000;
 
 if (!PRIVATE_KEY || !RPC_URL || !ONEINCH_API_KEY) {
@@ -380,10 +380,10 @@ class UltraRealisticTWAPStrategy {
 
     try {
       // Validate token addresses
-      if (!ethers.utils.isAddress(this.config.fromToken)) {
+      if (!ethers.isAddress(this.config.fromToken)) {
         errors.push("Invalid from token address");
       }
-      if (!ethers.utils.isAddress(this.config.toToken)) {
+      if (!ethers.isAddress(this.config.toToken)) {
         errors.push("Invalid to token address");
       } // Validate amounts and numbers
 
