@@ -134,7 +134,7 @@ export class VolatilityGridStrategy {
       oracleManipulationProbability: 0.01 // 1% chance of oracle manipulation
     };
 
-    console.log('Volatility Grid configuration set:');
+    console.log('🔧 Grid configuration set:');
     console.log(`  Pair: ${this.config.baseTokenSymbol}/${this.config.quoteTokenSymbol}`);
     console.log(`  Grid levels: ${this.config.gridLevels}`);
     console.log(`  Price range: ${this.config.priceRange}%`);
@@ -148,24 +148,24 @@ export class VolatilityGridStrategy {
   }
 
   async initialize() {
-    console.log('1inch Volatility Grid Strategy');
+    console.log('🌈 1inch Volatility Grid Strategy');
     console.log('==================================\n');
 
     await this.getUserConfiguration();
     await this.validateConfiguration();
-    console.log('\nGrid Configuration validated successfully!');
+    console.log('\n✅ Grid Configuration validated successfully!');
 
     this.config.currentPrice = await this.getCurrentPrice();
     this.generateGridLevels();
 
-    console.log('\nVolatility Grid Summary:');
-    console.log(`  Grid Levels: ${this.config.gridLevels}`);
-    console.log(`  Base Amount: ${this.config.baseAmount} ${this.config.baseTokenSymbol}`);
-    console.log(`  Quote Amount: ${this.config.quoteAmount} ${this.config.quoteTokenSymbol}`);
-    console.log(`  Price Range: ±${this.config.priceRange}%`);
-    console.log(`  Current Price: ${this.config.currentPrice.toFixed(6)} ${this.config.quoteTokenSymbol}`);
-    console.log(`  Auto-rebalance: ${this.config.autoRebalance ? 'Enabled' : 'Disabled'}`);
-    console.log(`  Profit Target: ${this.config.profitTarget}%`);
+    console.log('\n📋 Volatility Grid Summary:');
+    console.log(`  📊 Grid Levels: ${this.config.gridLevels}`);
+    console.log(`  💰 Base Amount: ${this.config.baseAmount} ${this.config.baseTokenSymbol}`);
+    console.log(`  💵 Quote Amount: ${this.config.quoteAmount} ${this.config.quoteTokenSymbol}`);
+    console.log(`  📈 Price Range: ±${this.config.priceRange}%`);
+    console.log(`  🎯 Current Price: ${this.config.currentPrice.toFixed(6)} ${this.config.quoteTokenSymbol}`);
+    console.log(`  🔄 Auto-rebalance: ${this.config.autoRebalance ? 'Enabled' : 'Disabled'}`);
+    console.log(`  📈 Profit Target: ${this.config.profitTarget}%`);
   }
 
   generateGridLevels() {
@@ -182,7 +182,7 @@ export class VolatilityGridStrategy {
     // Calculate adaptive profit target based on current market conditions
     this.updateAdaptiveProfitTarget();
 
-    console.log('\nUltra-Realistic Grid Price Levels:');
+    console.log('\n📊 Ultra-Realistic Grid Price Levels:');
     console.log('=====================================');
     console.log(`Market Regime: ${this.marketRegime}`);
     console.log(`Current Volatility: ${(this.currentVolatility * 100).toFixed(2)}%`);
@@ -230,7 +230,7 @@ export class VolatilityGridStrategy {
     let baseTarget = this.config.profitTarget;
     
     // Adjust based on current volatility (limited range)
-    const volatilityAdjustment = Math.min(this.currentVolatility * 5, 0.3);
+    const volatilityAdjustment = Math.min(this.currentVolatility * 5, 0.3); // Max 0.3% adjustment
     
     // Adjust based on market condition (limited range)
     let conditionAdjustment = 0;
@@ -291,7 +291,7 @@ export class VolatilityGridStrategy {
   }
   
   calculateRealisticGasCost() {
-    const baseGasCost = 0.8; 
+    const baseGasCost = 0.8; // $0.8 base gas cost
     const gasPriceVolatility = this.config.gasPriceVolatility;
     const networkCongestion = this.config.networkCongestionFactor;
     
@@ -299,13 +299,13 @@ export class VolatilityGridStrategy {
     const gasPriceVariation = 1 + (Math.random() - 0.5) * gasPriceVolatility;
     
     // Add network congestion
-    const congestionMultiplier = 1 + (Math.random() - 0.5) * 0.4; 
+    const congestionMultiplier = 1 + (Math.random() - 0.5) * 0.4; // ±20% congestion
     
     return baseGasCost * gasPriceVariation * networkCongestion * congestionMultiplier;
   }
   
   calculateRealisticSlippage(tradeSize, marketCondition) {
-    const baseSlippage = this.config.slippageTolerance / 100; 
+    const baseSlippage = this.config.slippageTolerance / 100; // Convert percentage to decimal
     const maxDeviation = this.config.maxSlippageDeviation;
     
     // Base slippage variation
@@ -313,19 +313,19 @@ export class VolatilityGridStrategy {
     
     // Market condition impact
     if (marketCondition === 'VOLATILE' || marketCondition === 'CRASH') {
-      slippage *= 2.0; 
+      slippage *= 2.0; // Double slippage in volatile markets
     }
     
     // Trade size impact
     if (tradeSize > 1000) {
-      slippage *= 1.5; 
+      slippage *= 1.5; // Higher slippage for large trades
     }
     
     // Liquidity impact
     const liquidityFactor = this.config.liquidityImpactFactor;
     slippage *= liquidityFactor;
     
-    return Math.max(0.0001, Math.min(0.01, slippage)); 
+    return Math.max(0.0001, Math.min(0.01, slippage)); // Keep between 0.01% and 1%
   }
   
   checkMEVAttack() {
@@ -337,13 +337,13 @@ export class VolatilityGridStrategy {
     
     if (Math.random() < sandwichProb) {
       isAttacked = true;
-      profitReduction = 0.3; 
+      profitReduction = 0.3; // 70% profit reduction from sandwich attack
       console.log('⚠️ MEV Sandwich Attack Detected!');
     }
     
     if (Math.random() < frontrunProb) {
       isAttacked = true;
-      profitReduction *= 0.8; 
+      profitReduction *= 0.8; // Additional 20% reduction from frontrunning
       console.log('⚠️ Frontrunning Detected!');
     }
     
@@ -389,7 +389,7 @@ export class VolatilityGridStrategy {
     const sessionDuration = (Date.now() - this.sessionStartTime) / (1000 * 60 * 60 * 24); // days
     const avgGasCost = this.totalTrades > 0 ? this.totalGasCosts / this.totalTrades : 0;
     
-    console.log('\nUltra-Realistic Trading Statistics');
+    console.log('\n📊 Ultra-Realistic Trading Statistics');
     console.log('=====================================');
     console.log(`Session Duration: ${sessionDuration.toFixed(2)} days`);
     console.log(`Total Trades: ${this.totalTrades}`);
@@ -459,7 +459,7 @@ export class VolatilityGridStrategy {
     const question = (q) => new Promise((res) => rl.question(q, (ans) => res(ans.trim())));
 
     try {
-      console.log('Volatility Grid Configuration');
+      console.log('📝 Volatility Grid Configuration');
       console.log('=================================\n');
 
       const baseToken = (await question('Base Token Address (or press enter for 1INCH): ')) ||
@@ -480,7 +480,7 @@ export class VolatilityGridStrategy {
       this.config.baseTokenSymbol = baseTokenInfo.symbol;
       this.config.quoteTokenSymbol = quoteTokenInfo.symbol;
 
-      console.log(`\nTrading pair: ${this.config.baseTokenSymbol} ↔ ${this.config.quoteTokenSymbol}`);
+      console.log(`\n🔄 Trading pair: ${this.config.baseTokenSymbol} ↔ ${this.config.quoteTokenSymbol}`);
 
       this.config.baseAmount = await question(`Base token amount for sell orders (${this.config.baseTokenSymbol}): `);
       this.config.quoteAmount = await question(`Quote token amount for buy orders (${this.config.quoteTokenSymbol}): `);
@@ -514,7 +514,7 @@ export class VolatilityGridStrategy {
       ]);
       return { symbol, decimals };
     } catch (err) {
-      console.warn(`Could not fetch token info for ${tokenAddress}, using defaults`);
+      console.warn(`⚠️ Could not fetch token info for ${tokenAddress}, using defaults`);
       return { symbol: 'UNKNOWN', decimals: 18 };
     }
   }
@@ -525,7 +525,7 @@ export class VolatilityGridStrategy {
       throw new Error(result.errors.join(', '));
     }
     if (result.warnings.length > 0) {
-      result.warnings.forEach(w => console.warn(`  ${w}`));
+      result.warnings.forEach(w => console.warn(`⚠️  ${w}`));
     }
   }
 
@@ -754,17 +754,17 @@ export class VolatilityGridStrategy {
 
       return orderData;
     } catch (err) {
-      console.error('Error creating grid order:', err);
+      console.error('❌ Error creating grid order:', err);
       return null;
     }
   }
 
   async executeGridStrategy() {
-    console.log('\nStarting Volatility Grid Strategy...');
+    console.log('\n🚀 Starting Volatility Grid Strategy...');
     console.log('======================================');
 
     if (this.isRunning) {
-      console.log('Grid strategy is already running');
+      console.log('⚠️ Grid strategy is already running');
       return;
     }
 
@@ -772,40 +772,40 @@ export class VolatilityGridStrategy {
 
     try {
       if (!this.config.currentPrice || this.gridLevels.size === 0) {
-        console.log('Initializing grid parameters...');
+        console.log('🔄 Initializing grid parameters...');
         this.config.currentPrice = await this.getCurrentPrice();
         this.generateGridLevels();
 
-        console.log('\nVolatility Grid Summary:');
-        console.log(`  Grid Levels: ${this.config.gridLevels}`);
-        console.log(`  Base Amount: ${this.config.baseAmount} ${this.config.baseTokenSymbol}`);
-        console.log(`  Quote Amount: ${this.config.quoteAmount} ${this.config.quoteTokenSymbol}`);
-        console.log(`  Price Range: ±${this.config.priceRange}%`);
-        console.log(`  Current Price: ${this.config.currentPrice.toFixed(6)} ${this.config.quoteTokenSymbol}`);
-        console.log(`  Auto-rebalance: ${this.config.autoRebalance ? 'Enabled' : 'Disabled'}`);
-        console.log(`  Profit Target: ${this.config.profitTarget}%`);
+        console.log('\n📋 Volatility Grid Summary:');
+        console.log(`  📊 Grid Levels: ${this.config.gridLevels}`);
+        console.log(`  💰 Base Amount: ${this.config.baseAmount} ${this.config.baseTokenSymbol}`);
+        console.log(`  💵 Quote Amount: ${this.config.quoteAmount} ${this.config.quoteTokenSymbol}`);
+        console.log(`  📈 Price Range: ±${this.config.priceRange}%`);
+        console.log(`  🎯 Current Price: ${this.config.currentPrice.toFixed(6)} ${this.config.quoteTokenSymbol}`);
+        console.log(`  🔄 Auto-rebalance: ${this.config.autoRebalance ? 'Enabled' : 'Disabled'}`);
+        console.log(`  📈 Profit Target: ${this.config.profitTarget}%`);
       }
 
       const orders = await this.createGridOrders();
       if (orders.length === 0) {
-        console.log('No orders created. Grid strategy cannot proceed.');
+        console.log('❌ No orders created. Grid strategy cannot proceed.');
         return;
       }
 
-      console.log('\nSubmitting orders to 1inch protocol...');
+      console.log('\n📤 Submitting orders to 1inch protocol...');
       await this.submitOrdersToProtocol();
 
-      console.log('\nStarting grid monitoring...');
+      console.log('\n👀 Starting grid monitoring...');
       await this.monitorGridExecution();
     } catch (err) {
-      console.error('Grid strategy execution failed:', err.message);
+      console.error('❌ Grid strategy execution failed:', err.message);
     } finally {
       this.isRunning = false;
     }
   }
 
   async monitorGridExecution() {
-    console.log('\nUltra-Realistic Grid Monitoring Active');
+    console.log('\n🔍 Ultra-Realistic Grid Monitoring Active');
     console.log('Press Ctrl+C to stop monitoring\n');
 
     const monitoringInterval = setInterval(async () => {
@@ -833,14 +833,14 @@ export class VolatilityGridStrategy {
           this.displayTradingStats();
         }
       } catch (err) {
-        console.error('Monitoring error:', err.message);
+        console.error('❌ Monitoring error:', err.message);
       }
     }, 30000);
 
     process.on('SIGINT', () => {
       clearInterval(monitoringInterval);
       this.isRunning = false;
-      console.log('\nUltra-Realistic Grid monitoring stopped');
+      console.log('\n🛑 Ultra-Realistic Grid monitoring stopped');
       this.displayTradingStats();
     });
   }
@@ -859,7 +859,7 @@ export class VolatilityGridStrategy {
             this.filledOrders.set(orderHash, orderData);
             this.activeOrders.delete(orderHash);
 
-            console.log(`Grid order filled: ${orderData.gridType} at level ${orderData.gridLevel}`);
+            console.log(`✅ Grid order filled: ${orderData.gridType} at level ${orderData.gridLevel}`);
 
             if (this.config.autoRebalance) {
               await this.createOppositeOrder(orderData);
@@ -872,7 +872,7 @@ export class VolatilityGridStrategy {
           }
         }
       } catch (err) {
-        console.log(`Could not check status for grid order ${orderData.gridLevel}`);
+        console.log(`⚠️ Could not check status for grid order ${orderData.gridLevel}`);
       }
     }
   }
@@ -899,18 +899,17 @@ export class VolatilityGridStrategy {
           this.config.quoteTokenDecimals
         );
       }
-
-      console.log(`Creating opposite ${newOrderType.toLowerCase()} order at level ${filledOrder.gridLevel}`);
+      console.log(`🔄 Creating opposite ${newOrderType.toLowerCase()} order at level ${filledOrder.gridLevel}`);
 
       const newOrder = await this.createSingleGridOrder(newAmount, newOrderType, filledOrder.gridLevel, newTargetPrice);
 
       if (newOrder) {
         this.activeOrders.set(newOrder.orderHash, newOrder);
         await this.submitSingleOrder(newOrder);
-        console.log(`Opposite order created: ${newOrderType} at ${newTargetPrice.toFixed(6)}`);
+        console.log(`✅ Opposite order created: ${newOrderType} at ${newTargetPrice.toFixed(6)}`);
       }
     } catch (err) {
-      console.error('Failed to create opposite order:', err.message);
+      console.error('❌ Failed to create opposite order:', err.message);
     }
   }
 
@@ -921,23 +920,23 @@ export class VolatilityGridStrategy {
     const filledRatio = totalOrders === 0 ? 0 : (this.filledOrders.size / totalOrders) * 100;
 
     if (filledRatio >= this.config.rebalanceThreshold) {
-      console.log(`Rebalancing triggered: ${filledRatio.toFixed(1)}% of orders filled`);
+      console.log(`🔄 Rebalancing triggered: ${filledRatio.toFixed(1)}% of orders filled`);
       await this.rebalanceGrid();
     }
   }
 
   async rebalanceGrid() {
     try {
-      console.log('Rebalancing grid...');
+      console.log('🔄 Rebalancing grid...');
       await this.cancelAllOrders();
       this.config.currentPrice = await this.getCurrentPrice();
       this.generateGridLevels();
       await this.createGridOrders();
       await this.submitOrdersToProtocol();
       this.filledOrders.clear();
-      console.log('Grid rebalanced successfully');
+      console.log('✅ Grid rebalanced successfully');
     } catch (err) {
-      console.error('Grid rebalancing failed:', err.message);
+      console.error('❌ Grid rebalancing failed:', err.message);
     }
   }
 
@@ -950,7 +949,7 @@ export class VolatilityGridStrategy {
     const estimatedProfit = orderValue * (this.config.profitTarget / 100);
     this.profits += estimatedProfit;
 
-    console.log(`Estimated profit from trade: $${estimatedProfit.toFixed(4)} (Total: $${this.profits.toFixed(4)})`);
+    console.log(`💰 Estimated profit from trade: $${estimatedProfit.toFixed(4)} (Total: $${this.profits.toFixed(4)})`);
   }
 
   async displayGridStatus() {
@@ -959,11 +958,11 @@ export class VolatilityGridStrategy {
     const filledCount = this.filledOrders.size;
     const totalOrders = activeCount + filledCount;
 
-    console.log(`Grid Status [${currentTime}]: ${activeCount} active, ${filledCount} filled (${totalOrders} total) | Profit: ${this.profits.toFixed(4)}`);
+    console.log(`📊 Grid Status [${currentTime}]: ${activeCount} active, ${filledCount} filled (${totalOrders} total) | Profit: ${this.profits.toFixed(4)}`);
   }
 
   async ensureTokenApprovals() {
-    console.log('Checking token approvals...');
+    console.log('🔐 Checking token approvals...');
 
     const walletAddress = await this.signer.getAddress();
 
@@ -972,10 +971,10 @@ export class VolatilityGridStrategy {
     const baseAllowance = await baseTokenContract.allowance(walletAddress, LIMIT_ORDER_PROTOCOL_ADDRESS);
 
     if (baseAllowance.lt(baseAmount)) {
-      console.log(`Approving ${this.config.baseTokenSymbol} for 1inch protocol...`);
+      console.log(`📝 Approving ${this.config.baseTokenSymbol} for 1inch protocol...`);
       const approveTx = await baseTokenContract.approve(LIMIT_ORDER_PROTOCOL_ADDRESS, baseAmount);
       await approveTx.wait();
-      console.log(`${this.config.baseTokenSymbol} approval confirmed`);
+      console.log(`✅ ${this.config.baseTokenSymbol} approval confirmed`);
     }
 
     const quoteTokenContract = new ethers.Contract(this.config.quoteToken, ERC20_ABI, this.signer);
@@ -983,13 +982,13 @@ export class VolatilityGridStrategy {
     const quoteAllowance = await quoteTokenContract.allowance(walletAddress, LIMIT_ORDER_PROTOCOL_ADDRESS);
 
     if (quoteAllowance.lt(quoteAmount)) {
-      console.log(`Approving ${this.config.quoteTokenSymbol} for 1inch protocol...`);
+      console.log(`📝 Approving ${this.config.quoteTokenSymbol} for 1inch protocol...`);
       const approveTx = await quoteTokenContract.approve(LIMIT_ORDER_PROTOCOL_ADDRESS, quoteAmount);
       await approveTx.wait();
-      console.log(`${this.config.quoteTokenSymbol} approval confirmed`);
+      console.log(`✅ ${this.config.quoteTokenSymbol} approval confirmed`);
     }
 
-    console.log('Token approvals sufficient');
+    console.log('✅ Token approvals sufficient');
   }
 
   async submitOrdersToProtocol() {
@@ -997,7 +996,7 @@ export class VolatilityGridStrategy {
     for (const [, orderData] of this.activeOrders) {
       if (await this.submitSingleOrder(orderData)) successCount++;
     }
-    console.log(`\nSuccessfully submitted ${successCount}/${this.activeOrders.size} orders to 1inch protocol`);
+    console.log(`\n📤 Successfully submitted ${successCount}/${this.activeOrders.size} orders to 1inch protocol`);
   }
 
   async submitSingleOrder(orderData) {
@@ -1005,7 +1004,7 @@ export class VolatilityGridStrategy {
       let limitOrder = orderData.limitOrderInstance;
 
       if (!limitOrder) {
-        console.log(`Recreating order from stored data for ${orderData.gridType} order`);
+        console.log(`🔧 Recreating order from stored data for ${orderData.gridType} order`);
         limitOrder = new LimitOrder({
           makerAsset: new OneInchAddress(orderData.order.makerAsset),
           takerAsset: new OneInchAddress(orderData.order.takerAsset),
@@ -1016,21 +1015,21 @@ export class VolatilityGridStrategy {
           receiver: new OneInchAddress(orderData.order.receiver)
         }, new MakerTraits(BigInt(orderData.order.makerTraits)));
       } else {
-        console.log(`Using stored limit order instance for ${orderData.gridType} order`);
+        console.log(`🚀 Using stored limit order instance for ${orderData.gridType} order`);
       }
 
       await this.oneInchApi.submitOrder(limitOrder, orderData.signature);
-      console.log(`${orderData.gridType} order submitted at level ${orderData.gridLevel}`);
+      console.log(`✅ ${orderData.gridType} order submitted at level ${orderData.gridLevel}`);
       return true;
     } catch (err) {
-      console.error(`Submit error for ${orderData.gridType} order:`, err?.response?.data || err.message);
+      console.error(`❌ Submit error for ${orderData.gridType} order:`, err?.response?.data || err.message);
       return false;
     }
   }
 
   async getCurrentPrice() {
     try {
-      console.log('Fetching current price from 1inch API...');
+      console.log('📊 Fetching current price from 1inch API...');
 
       const response = await axios.get(`${SWAP_API_BASE(CHAIN_ID)}/quote`, {
         params: {
@@ -1047,10 +1046,10 @@ export class VolatilityGridStrategy {
       const dstAmount = response.data.dstAmount;
       const price = Number(ethers.utils.formatUnits(dstAmount, this.config.quoteTokenDecimals));
 
-      console.log(`Current price: 1 ${this.config.baseTokenSymbol} = ${price.toFixed(6)} ${this.config.quoteTokenSymbol}`);
+      console.log(`💰 Current price: 1 ${this.config.baseTokenSymbol} = ${price.toFixed(6)} ${this.config.quoteTokenSymbol}`);
       return price;
     } catch (err) {
-      console.warn('Failed to fetch current price, using fallback');
+      console.warn('⚠️ Failed to fetch current price, using fallback');
       return 1.0;
     }
   }
@@ -1089,7 +1088,7 @@ export class VolatilityGridStrategy {
   }
 
   async cancelAllOrders() {
-    console.log('Cancelling all active grid orders...');
+    console.log('🚫 Cancelling all active grid orders...');
     let cancelledCount = 0;
     for (const [orderHash, orderData] of this.activeOrders) {
       try {
@@ -1100,12 +1099,12 @@ export class VolatilityGridStrategy {
         orderData.status = 'CANCELLED';
         cancelledCount++;
       } catch {
-        console.error(`Failed to cancel order ${orderHash.slice(0, 10)}...`);
+        console.error(`❌ Failed to cancel order ${orderHash.slice(0, 10)}...`);
       }
     }
 
     this.activeOrders.clear();
-    console.log(`Cancelled ${cancelledCount} orders`);
+    console.log(`✅ Cancelled ${cancelledCount} orders`);
   }
 
   getActiveOrders() {
@@ -1128,10 +1127,10 @@ export class VolatilityGridStrategy {
   }
 
   async emergencyStop() {
-    console.log('Emergency stop activated!');
+    console.log('🚨 Emergency stop activated!');
     this.isRunning = false;
     await this.cancelAllOrders();
-    console.log('All orders cancelled, strategy stopped');
+    console.log('🛑 All orders cancelled, strategy stopped');
   }
 
   async getDetailedStatus() {

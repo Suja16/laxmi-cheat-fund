@@ -1,3 +1,5 @@
+// ============ TYPE DEFINITIONS ============
+
 /**
  * Token information structure
  * @typedef {Object} TokenInfo
@@ -127,32 +129,51 @@
  * @property {number} dataPoints - Number of data points
  * @property {Date} lastUpdate - Last update timestamp
  */
-export const LIMIT_ORDER_PROTOCOL_ADDRESSES = {
-  1: '0x1111111254EEB25477B68fb85Ed929f73A960582',
-  56: '0x1111111254EEB25477B68fb85Ed929f73A960582',
-  137: '0x1111111254EEB25477B68fb85Ed929f73A960582',
-  8453: '0x1111111254EEB25477B68fb85Ed929f73A960582',
-  42161: '0x1111111254EEB25477B68fb85Ed929f73A960582'
+
+// ============ CONSTANTS ============
+
+/**
+ * 1inch API endpoints and addresses
+ */
+const LIMIT_ORDER_PROTOCOL_ADDRESSES = {
+  1: '0x1111111254EEB25477B68fb85Ed929f73A960582', // Ethereum
+  56: '0x1111111254EEB25477B68fb85Ed929f73A960582', // BSC
+  137: '0x1111111254EEB25477B68fb85Ed929f73A960582', // Polygon
+  8453: '0x1111111254EEB25477B68fb85Ed929f73A960582', // Base
+  42161: '0x1111111254EEB25477B68fb85Ed929f73A960582'  // Arbitrum
 };
 
-export const SWAP_API_BASE = (chainId) => `https://api.1inch.io/v5.2/${chainId}`;
-export const LIMIT_ORDER_API_BASE = (chainId) => `https://limit-order.1inch.io/v3.0/${chainId}`;
+/**
+ * 1inch API base URLs
+ */
+const SWAP_API_BASE = (chainId) => `https://api.1inch.io/v5.2/${chainId}`;
+const LIMIT_ORDER_API_BASE = (chainId) => `https://limit-order.1inch.io/v3.0/${chainId}`;
 
-export const DEFAULT_TOKENS = {
+/**
+ * Default token addresses for Base chain
+ */
+const DEFAULT_TOKENS = {
   BASE: {
     WETH: '0x4200000000000000000000000000000000000006',
     USDC: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
     WBTC: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
-    ONEINCH: '0xc5fecC3a29Fb57B5024eEc8a2239d4621e111CBE'
+    ONEINCH: '0xc5fecC3a29Fb57B5024eEc8a2239d4621e111CBE',
+    ETH_SEOPOLIA: '0x29A1F4ecE9246F0042A9062FB89803fA8B1830cB'
   }
 };
 
-export const GridOrderType = {
+/**
+ * Grid order types
+ */
+const GridOrderType = {
   BUY: 'BUY',
   SELL: 'SELL'
 };
 
-export const OrderStatus = {
+/**
+ * Order statuses
+ */
+const OrderStatus = {
   ACTIVE: 'ACTIVE',
   FILLED: 'FILLED',
   PARTIALLY_FILLED: 'PARTIALLY_FILLED',
@@ -160,57 +181,109 @@ export const OrderStatus = {
   EXPIRED: 'EXPIRED'
 };
 
-export function isValidAddress(address) {
+// ============ UTILITY FUNCTIONS ============
+
+/**
+ * Validate token address
+ * @param {string} address - Token address to validate
+ * @returns {boolean} - True if valid address
+ */
+function isValidAddress(address) {
   return typeof address === 'string' && address.length === 42 && address.startsWith('0x');
 }
 
-export function formatTokenAmount(amount, decimals) {
+/**
+ * Format token amount with decimals
+ * @param {string|number} amount - Amount to format
+ * @param {number} decimals - Token decimals
+ * @returns {string} - Formatted amount
+ */
+function formatTokenAmount(amount, decimals) {
   const num = typeof amount === 'string' ? parseFloat(amount) : amount;
   return num.toFixed(decimals);
 }
 
-export function parseTokenAmount(amount, decimals) {
+/**
+ * Parse token amount from string with decimals
+ * @param {string} amount - Amount string
+ * @param {number} decimals - Token decimals
+ * @returns {number} - Parsed amount
+ */
+function parseTokenAmount(amount, decimals) {
   return parseFloat(amount) * Math.pow(10, decimals);
 }
 
-export function calculatePriceChange(oldPrice, newPrice) {
+/**
+ * Calculate price change percentage
+ * @param {number} oldPrice - Old price
+ * @param {number} newPrice - New price
+ * @returns {number} - Price change percentage
+ */
+function calculatePriceChange(oldPrice, newPrice) {
   return ((newPrice - oldPrice) / oldPrice) * 100;
 }
 
-export function generateNonce(max = 2**40 - 1) {
+/**
+ * Generate random nonce for orders
+ * @param {number} max - Maximum value
+ * @returns {number} - Random nonce
+ */
+function generateNonce(max = 2 ** 40 - 1) {
   return Math.floor(Math.random() * max);
 }
 
-export function isTokenInfo(obj) {
-  return obj && 
-         typeof obj.address === 'string' &&
-         typeof obj.symbol === 'string' &&
-         typeof obj.decimals === 'number' &&
-         typeof obj.name === 'string';
-}
+// ============ TYPE GUARDS ============
 
-export function isGridConfig(obj) {
+/**
+ * Check if object is TokenInfo
+ * @param {any} obj - Object to check
+ * @returns {boolean} - True if TokenInfo
+ */
+function isTokenInfo(obj) {
   return obj &&
-         typeof obj.name === 'string' &&
-         typeof obj.gridLevels === 'number' &&
-         typeof obj.priceRange === 'number' &&
-         typeof obj.profitTarget === 'number' &&
-         typeof obj.baseAmount === 'number' &&
-         typeof obj.quoteAmount === 'number';
+    typeof obj.address === 'string' &&
+    typeof obj.symbol === 'string' &&
+    typeof obj.decimals === 'number' &&
+    typeof obj.name === 'string';
 }
 
-export function isAssetConfig(obj) {
+/**
+ * Check if object is GridConfig
+ * @param {any} obj - Object to check
+ * @returns {boolean} - True if GridConfig
+ */
+function isGridConfig(obj) {
   return obj &&
-         typeof obj.symbol === 'string' &&
-         typeof obj.baseToken === 'string' &&
-         typeof obj.quoteToken === 'string' &&
-         typeof obj.baseDecimals === 'number' &&
-         typeof obj.quoteDecimals === 'number' &&
-         typeof obj.volatility === 'number' &&
-         typeof obj.trend === 'number';
+    typeof obj.name === 'string' &&
+    typeof obj.gridLevels === 'number' &&
+    typeof obj.priceRange === 'number' &&
+    typeof obj.profitTarget === 'number' &&
+    typeof obj.baseAmount === 'number' &&
+    typeof obj.quoteAmount === 'number';
 }
 
-export const DEFAULT_GRID_CONFIGS = [
+/**
+ * Check if object is AssetConfig
+ * @param {any} obj - Object to check
+ * @returns {boolean} - True if AssetConfig
+ */
+function isAssetConfig(obj) {
+  return obj &&
+    typeof obj.symbol === 'string' &&
+    typeof obj.baseToken === 'string' &&
+    typeof obj.quoteToken === 'string' &&
+    typeof obj.baseDecimals === 'number' &&
+    typeof obj.quoteDecimals === 'number' &&
+    typeof obj.volatility === 'number' &&
+    typeof obj.trend === 'number';
+}
+
+// ============ DEFAULT CONFIGURATIONS ============
+
+/**
+ * Default grid strategy configurations
+ */
+const DEFAULT_GRID_CONFIGS = [
   {
     name: 'Conservative',
     gridLevels: 10,
@@ -237,7 +310,10 @@ export const DEFAULT_GRID_CONFIGS = [
   }
 ];
 
-export const DEFAULT_ASSET_CONFIGS = [
+/**
+ * Default asset configurations for backtesting
+ */
+const DEFAULT_ASSET_CONFIGS = [
   {
     symbol: 'ETH/USDC',
     baseToken: '0x4200000000000000000000000000000000000006',
@@ -267,9 +343,15 @@ export const DEFAULT_ASSET_CONFIGS = [
   }
 ];
 
-export const DEFAULT_TIMEFRAMES = [7, 14, 30, 90, 180];
+/**
+ * Default backtest timeframes
+ */
+const DEFAULT_TIMEFRAMES = [7, 14, 30, 90, 180];
 
-export const PYTH_PRICE_FEEDS = {
+/**
+ * Pyth price feed IDs for different assets
+ */
+const PYTH_PRICE_FEEDS = {
   ETH_USD_STABLE: '0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace',
   ETH_USD_BETA: '0xca80ba6dc32e08d06f1aa886011eed1d77c77be9eb761cc10d72b7d0a2fd57a6',
   BTC_USD_STABLE: '0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43',
@@ -279,18 +361,37 @@ export const PYTH_PRICE_FEEDS = {
   USDC_USD_STABLE: '0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a'
 };
 
-export const PYTH_ENDPOINTS = {
+/**
+ * Pyth API endpoints
+ */
+const PYTH_ENDPOINTS = {
   REST_BASE: 'https://hermes.pyth.network/v2',
   STREAM_BASE: 'https://hermes.pyth.network/v2',
   LATEST_PRICE: (feedId) => `${PYTH_ENDPOINTS.REST_BASE}/updates/price/latest?ids[]=${feedId}`,
   STREAM_PRICE: (feedId) => `${PYTH_ENDPOINTS.STREAM_BASE}/updates/price/stream?ids[]=${feedId}`
 };
 
-export const PRICE_FEED_CONFIG = {
-  UPDATE_INTERVAL: 1000,
+/**
+ * Price feed configuration
+ */
+const PRICE_FEED_CONFIG = {
+  UPDATE_INTERVAL: 1000, // 1 second
   MAX_RETRIES: 3,
-  RETRY_DELAY: 5000,
-  PRICE_VALIDITY_WINDOW: 30000,
-  MIN_CONFIDENCE_INTERVAL: 0.01,
-  MAX_PRICE_CHANGE: 0.1
+  RETRY_DELAY: 5000, // 5 seconds
+  PRICE_VALIDITY_WINDOW: 30000, // 30 seconds
+  MIN_CONFIDENCE_INTERVAL: 0.01, // 1% confidence interval
+  MAX_PRICE_CHANGE: 0.1 // 10% max price change per update
 };
+
+//  all types for JSDoc usage
+//  {
+//   // Re- types for documentation
+//   TokenInfo,
+//   // GridConfig,
+//   // AssetConfig,
+//   PriceData,
+//   // GridLevel,
+//   Order,
+//   // BacktestResult,
+//   GridOrderData
+// };
