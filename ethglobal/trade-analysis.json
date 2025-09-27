@@ -1,0 +1,1297 @@
+{
+  "summary": {
+    "totalTrades": 8,
+    "winningTrades": 6,
+    "losingTrades": 0,
+    "winRate": 75,
+    "totalProfit": 6042.641662763614,
+    "totalLoss": 0,
+    "netProfit": 6042.641662763614,
+    "profitFactor": null,
+    "averageProfit": 1007.1069437939356,
+    "averageLoss": 0
+  },
+  "apyAnalysis": {
+    "7d": {
+      "average": 0.7212075339259025,
+      "best": 6.836337896325029,
+      "worst": 0
+    },
+    "14d": {
+      "average": 0.35491720824405587,
+      "best": 3.3616649906168083,
+      "worst": 0
+    },
+    "30d": {
+      "average": 0.16423549414037997,
+      "best": 1.554950394946153,
+      "worst": 0
+    },
+    "90d": {
+      "average": 0.05447679816122511,
+      "best": 0.5156532452452067,
+      "worst": 0
+    },
+    "180d": {
+      "average": 0.027204990663372994,
+      "best": 0.2574951039797435,
+      "worst": 0
+    }
+  },
+  "strategyPerformance": [
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "timeframe": 7,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "timeframe": 14,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "timeframe": 30,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "timeframe": 90,
+      "totalTrades": 2,
+      "winRate": 50,
+      "profitFactor": null,
+      "apy": {
+        "7d": 6.64650185221749,
+        "14d": 3.2697931886267906,
+        "30d": 1.5128163076993717,
+        "90d": 0.501750357772246,
+        "180d": 0.2505612741256602
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "timeframe": 90,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "ETH/USDC",
+      "timeframe": 180,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "ETH/USDC",
+      "timeframe": 180,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "ETH/USDC",
+      "timeframe": 180,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "BTC/USDC",
+      "timeframe": 180,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "BTC/USDC",
+      "timeframe": 180,
+      "totalTrades": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "apy": {
+        "7d": 0,
+        "14d": 0,
+        "30d": 0,
+        "90d": 0,
+        "180d": 0
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "BTC/USDC",
+      "timeframe": 180,
+      "totalTrades": 1,
+      "winRate": 100,
+      "profitFactor": null,
+      "apy": {
+        "7d": 6.701982540194007,
+        "14d": 3.296651707687981,
+        "30d": 1.5251361825326049,
+        "90d": 0.5058159163362941,
+        "180d": 0.25258895227409095
+      }
+    },
+    {
+      "strategy": "Conservative",
+      "asset": "1INCH/USDC",
+      "timeframe": 180,
+      "totalTrades": 1,
+      "winRate": 100,
+      "profitFactor": null,
+      "apy": {
+        "7d": 5.7812922599011385,
+        "14d": 2.850032698050775,
+        "30d": 1.320051666685318,
+        "90d": 0.43809514591162113,
+        "180d": 0.21880818784048017
+      }
+    },
+    {
+      "strategy": "Moderate",
+      "asset": "1INCH/USDC",
+      "timeframe": 180,
+      "totalTrades": 1,
+      "winRate": 100,
+      "profitFactor": null,
+      "apy": {
+        "7d": 6.4882244780279485,
+        "14d": 3.1931317860001585,
+        "30d": 1.4776426844536505,
+        "90d": 0.4901412519897619,
+        "180d": 0.24477106163180995
+      }
+    },
+    {
+      "strategy": "Aggressive",
+      "asset": "1INCH/USDC",
+      "timeframe": 180,
+      "totalTrades": 3,
+      "winRate": 66.66666666666666,
+      "profitFactor": null,
+      "apy": {
+        "7d": 6.836337896325029,
+        "14d": 3.3616649906168083,
+        "30d": 1.554950394946153,
+        "90d": 0.5156532452452067,
+        "180d": 0.2574951039797435
+      }
+    }
+  ],
+  "topTrades": [
+    {
+      "tradeId": "trade_1_1758960605946",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.117100735478,
+          "sellPrice": 1024.4100209873259
+        },
+        "price": 1024.8152384514046,
+        "amount": 100,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-04-22T12:10:05.943Z",
+        "balance": {
+          "base": 900,
+          "quote": 103379.04232129532
+        }
+      },
+      "exit": {
+        "price": 1024.8152384514046,
+        "timestamp": "2025-04-22T12:10:05.943Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1025712.7569275595,
+        "totalReturn": -0.009990251655826494,
+        "balance": {
+          "base": 900,
+          "quote": 103379.04232129532
+        }
+      },
+      "profitLoss": {
+        "amount": 1269.8137715926691,
+        "percentage": 1.2390660520539107,
+        "gasCost": 0.5,
+        "netProfit": 1269.3137715926691
+      },
+      "analytics": {
+        "volatility": 0.000463997318076591,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605921",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.9443317087254,
+          "sellPrice": 1025.2472993003294
+        },
+        "price": 1025.4132615326682,
+        "amount": 100,
+        "tokenSymbol": "BTC",
+        "timestamp": "2025-08-15T15:10:05.916Z",
+        "balance": {
+          "base": 900,
+          "quote": 103438.78482711356
+        }
+      },
+      "exit": {
+        "price": 1025.4132615326682,
+        "timestamp": "2025-08-15T15:10:05.916Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1026310.7202065149,
+        "totalReturn": -0.009990257335549953,
+        "balance": {
+          "base": 900,
+          "quote": 103438.78482711356
+        }
+      },
+      "profitLoss": {
+        "amount": 1246.8929823942858,
+        "percentage": 1.2159906928944682,
+        "gasCost": 0.5,
+        "netProfit": 1246.3929823942858
+      },
+      "analytics": {
+        "volatility": 0.00028438310413621856,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605854",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1020.160111002304,
+          "sellPrice": 1028.3872086716774
+        },
+        "price": 1028.818233936533,
+        "amount": 142.85714285714286,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-08-13T22:10:05.851Z",
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147827.05938608522
+        }
+      },
+      "exit": {
+        "price": 1028.818233936533,
+        "timestamp": "2025-08-13T22:10:05.851Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1029671.2599031136,
+        "totalReturn": -0.014271842212151975,
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147827.05938608522
+        }
+      },
+      "profitLoss": {
+        "amount": 1236.874704889861,
+        "percentage": 0.8415600198978529,
+        "gasCost": 0.5,
+        "netProfit": 1236.374704889861
+      },
+      "analytics": {
+        "volatility": 0.00032592921126480657,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605941",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1020.4187024200569,
+          "sellPrice": 1028.6478855040896
+        },
+        "price": 1028.87567072484,
+        "amount": 142.85714285714286,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-14T04:10:05.933Z",
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147835.25643630215
+        }
+      },
+      "exit": {
+        "price": 1028.87567072484,
+        "timestamp": "2025-09-14T04:10:05.933Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1029728.6884861649,
+        "totalReturn": -0.014271842985819249,
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147835.25643630215
+        }
+      },
+      "profitLoss": {
+        "amount": 1208.1383292547148,
+        "percentage": 0.8219621228700155,
+        "gasCost": 0.5,
+        "netProfit": 1207.6383292547148
+      },
+      "analytics": {
+        "volatility": 0.0002921648240695954,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605931",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1024.5182779783652,
+          "sellPrice": 1029.666611033533
+        },
+        "price": 1029.9167068102004,
+        "amount": 200,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-16T10:10:05.927Z",
+        "balance": {
+          "base": 800,
+          "quote": 206777.35802067805
+        }
+      },
+      "exit": {
+        "price": 1029.9167068102004,
+        "timestamp": "2025-09-16T10:10:05.927Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1030710.7234688384,
+        "totalReturn": -0.01998059979058048,
+        "balance": {
+          "base": 800,
+          "quote": 206777.35802067805
+        }
+      },
+      "profitLoss": {
+        "amount": 1079.685766367038,
+        "percentage": 0.5241616915366776,
+        "gasCost": 0.5,
+        "netProfit": 1079.185766367038
+      },
+      "analytics": {
+        "volatility": 0.0005074025461832847,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_3_1758960605950",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.117100735478,
+          "sellPrice": 1024.4100209873259
+        },
+        "price": 1024.4956279757666,
+        "amount": 0.09985907378550476,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-24T15:10:05.945Z",
+        "balance": {
+          "base": 900,
+          "quote": 103380.09184371182
+        }
+      },
+      "exit": {
+        "price": 1024.4956279757666,
+        "timestamp": "2025-09-24T15:10:05.945Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1025426.1570219018,
+        "totalReturn": -0.006774378356150535,
+        "balance": {
+          "base": 900,
+          "quote": 103380.09184371182
+        }
+      },
+      "profitLoss": {
+        "amount": 1.236108265043869,
+        "percentage": 1.2082557409001937,
+        "gasCost": 0.5,
+        "netProfit": 0.7361082650438691
+      },
+      "analytics": {
+        "volatility": 0.0004114223670412409,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    }
+  ],
+  "worstTrades": [],
+  "allTrades": [
+    {
+      "tradeId": "trade_1_1758960605854",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1020.160111002304,
+          "sellPrice": 1028.3872086716774
+        },
+        "price": 1028.818233936533,
+        "amount": 142.85714285714286,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-08-13T22:10:05.851Z",
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147827.05938608522
+        }
+      },
+      "exit": {
+        "price": 1028.818233936533,
+        "timestamp": "2025-08-13T22:10:05.851Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1029671.2599031136,
+        "totalReturn": -0.014271842212151975,
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147827.05938608522
+        }
+      },
+      "profitLoss": {
+        "amount": 1236.874704889861,
+        "percentage": 0.8415600198978529,
+        "gasCost": 0.5,
+        "netProfit": 1236.374704889861
+      },
+      "analytics": {
+        "volatility": 0.00032592921126480657,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_2_1758960605858",
+      "entry": {
+        "orderType": "BUY",
+        "gridLevel": {
+          "buyPrice": 1020.160111002304,
+          "sellPrice": 1028.3872086716774
+        },
+        "price": 1019.9242603923718,
+        "amount": 143.92550522469273,
+        "tokenSymbol": "USDC",
+        "timestamp": "2025-08-28T10:10:05.852Z",
+        "balance": {
+          "base": 857.2838299437827,
+          "quote": 147683.13388086052
+        }
+      },
+      "exit": {
+        "price": 1019.9242603923718,
+        "timestamp": "2025-08-28T10:10:05.852Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1022047.7100826129,
+        "totalReturn": 0.11004241292193002,
+        "balance": {
+          "base": 857.2838299437827,
+          "quote": 147683.13388086052
+        }
+      },
+      "profitLoss": {
+        "amount": 0,
+        "percentage": 0,
+        "gasCost": 0.5,
+        "netProfit": -0.5
+      },
+      "analytics": {
+        "volatility": 0.0003519399700022092,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605921",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.9443317087254,
+          "sellPrice": 1025.2472993003294
+        },
+        "price": 1025.4132615326682,
+        "amount": 100,
+        "tokenSymbol": "BTC",
+        "timestamp": "2025-08-15T15:10:05.916Z",
+        "balance": {
+          "base": 900,
+          "quote": 103438.78482711356
+        }
+      },
+      "exit": {
+        "price": 1025.4132615326682,
+        "timestamp": "2025-08-15T15:10:05.916Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1026310.7202065149,
+        "totalReturn": -0.009990257335549953,
+        "balance": {
+          "base": 900,
+          "quote": 103438.78482711356
+        }
+      },
+      "profitLoss": {
+        "amount": 1246.8929823942858,
+        "percentage": 1.2159906928944682,
+        "gasCost": 0.5,
+        "netProfit": 1246.3929823942858
+      },
+      "analytics": {
+        "volatility": 0.00028438310413621856,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605931",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1024.5182779783652,
+          "sellPrice": 1029.666611033533
+        },
+        "price": 1029.9167068102004,
+        "amount": 200,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-16T10:10:05.927Z",
+        "balance": {
+          "base": 800,
+          "quote": 206777.35802067805
+        }
+      },
+      "exit": {
+        "price": 1029.9167068102004,
+        "timestamp": "2025-09-16T10:10:05.927Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1030710.7234688384,
+        "totalReturn": -0.01998059979058048,
+        "balance": {
+          "base": 800,
+          "quote": 206777.35802067805
+        }
+      },
+      "profitLoss": {
+        "amount": 1079.685766367038,
+        "percentage": 0.5241616915366776,
+        "gasCost": 0.5,
+        "netProfit": 1079.185766367038
+      },
+      "analytics": {
+        "volatility": 0.0005074025461832847,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605941",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1020.4187024200569,
+          "sellPrice": 1028.6478855040896
+        },
+        "price": 1028.87567072484,
+        "amount": 142.85714285714286,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-14T04:10:05.933Z",
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147835.25643630215
+        }
+      },
+      "exit": {
+        "price": 1028.87567072484,
+        "timestamp": "2025-09-14T04:10:05.933Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1029728.6884861649,
+        "totalReturn": -0.014271842985819249,
+        "balance": {
+          "base": 857.1428571428571,
+          "quote": 147835.25643630215
+        }
+      },
+      "profitLoss": {
+        "amount": 1208.1383292547148,
+        "percentage": 0.8219621228700155,
+        "gasCost": 0.5,
+        "netProfit": 1207.6383292547148
+      },
+      "analytics": {
+        "volatility": 0.0002921648240695954,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_1_1758960605946",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.117100735478,
+          "sellPrice": 1024.4100209873259
+        },
+        "price": 1024.8152384514046,
+        "amount": 100,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-04-22T12:10:05.943Z",
+        "balance": {
+          "base": 900,
+          "quote": 103379.04232129532
+        }
+      },
+      "exit": {
+        "price": 1024.8152384514046,
+        "timestamp": "2025-04-22T12:10:05.943Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1025712.7569275595,
+        "totalReturn": -0.009990251655826494,
+        "balance": {
+          "base": 900,
+          "quote": 103379.04232129532
+        }
+      },
+      "profitLoss": {
+        "amount": 1269.8137715926691,
+        "percentage": 1.2390660520539107,
+        "gasCost": 0.5,
+        "netProfit": 1269.3137715926691
+      },
+      "analytics": {
+        "volatility": 0.000463997318076591,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_2_1758960605947",
+      "entry": {
+        "orderType": "BUY",
+        "gridLevel": {
+          "buyPrice": 1012.117100735478,
+          "sellPrice": 1024.4100209873259
+        },
+        "price": 1011.948135690568,
+        "amount": 101.15335690593436,
+        "tokenSymbol": "USDC",
+        "timestamp": "2025-05-22T00:10:05.944Z",
+        "balance": {
+          "base": 900.0998590737855,
+          "quote": 103277.88896438938
+        }
+      },
+      "exit": {
+        "price": 1011.948135690568,
+        "timestamp": "2025-05-22T00:10:05.944Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1014132.2632894496,
+        "totalReturn": 0.11689913403851987,
+        "balance": {
+          "base": 900.0998590737855,
+          "quote": 103277.88896438938
+        }
+      },
+      "profitLoss": {
+        "amount": 0,
+        "percentage": 0,
+        "gasCost": 0.5,
+        "netProfit": -0.5
+      },
+      "analytics": {
+        "volatility": 0.0002350717604861007,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "tradeId": "trade_3_1758960605950",
+      "entry": {
+        "orderType": "SELL",
+        "gridLevel": {
+          "buyPrice": 1012.117100735478,
+          "sellPrice": 1024.4100209873259
+        },
+        "price": 1024.4956279757666,
+        "amount": 0.09985907378550476,
+        "tokenSymbol": "1INCH",
+        "timestamp": "2025-09-24T15:10:05.945Z",
+        "balance": {
+          "base": 900,
+          "quote": 103380.09184371182
+        }
+      },
+      "exit": {
+        "price": 1024.4956279757666,
+        "timestamp": "2025-09-24T15:10:05.945Z",
+        "reason": "GRID_FILL",
+        "portfolioValue": 1025426.1570219018,
+        "totalReturn": -0.006774378356150535,
+        "balance": {
+          "base": 900,
+          "quote": 103380.09184371182
+        }
+      },
+      "profitLoss": {
+        "amount": 1.236108265043869,
+        "percentage": 1.2082557409001937,
+        "gasCost": 0.5,
+        "netProfit": 0.7361082650438691
+      },
+      "analytics": {
+        "volatility": 0.0004114223670412409,
+        "marketCondition": "NORMAL",
+        "gridPosition": "ABOVE_MARKET"
+      },
+      "status": "ACTIVE"
+    }
+  ]
+}
