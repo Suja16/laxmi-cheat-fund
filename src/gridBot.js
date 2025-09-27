@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { ethers } from 'ethers';
 import axios from 'axios';
 import readline from 'readline';
@@ -31,7 +29,6 @@ const ERC20_ABI = [
   'function symbol() external view returns (string)'
 ];
 
-// Grid order enum-like
 const GridOrderType = {
   BUY: 'BUY',
   SELL: 'SELL'
@@ -76,17 +73,16 @@ export class VolatilityGridStrategy {
     this.sessionStartTime = new Date();
   }
 
-  // Accepts a StrategyConfig-like object with ultra-realistic parameters
   setConfiguration(config) {
     this.config = {
       baseToken: config.fromToken.address,
       quoteToken: config.toToken.address,
       baseAmount: config.totalAmount,
       quoteAmount: config.totalAmount,
-      gridLevels: config.numberOfOrders || 12, // Realistic default
-      priceRange: config.priceDropPercent || 8, // Realistic default
+      gridLevels: config.numberOfOrders || 12, 
+      priceRange: config.priceDropPercent || 8, 
       currentPrice: 0,
-      slippageTolerance: config.slippageTolerance || 0.2, // Realistic 0.2%
+      slippageTolerance: config.slippageTolerance || 0.2, 
       gasPrice: config.gasPrice || 'auto',
       baseTokenDecimals: config.fromToken.decimals,
       quoteTokenDecimals: config.toToken.decimals,
@@ -94,16 +90,15 @@ export class VolatilityGridStrategy {
       quoteTokenSymbol: config.toToken.symbol,
       rebalanceThreshold: 50,
       autoRebalance: true,
-      profitTarget: 0.8, // Realistic 0.8% profit target
+      profitTarget: 0.8, 
       
-      // Ultra-realistic trading parameters
       adaptiveProfitTarget: true,
       volatilityMultiplier: 1.2,
-      maxCompoundRatio: 1.08, // 8% max compound growth
-      minTradeSize: 30, // $30 minimum trade
-      maxTradeSize: 800, // $800 maximum trade
-      gasPriceGwei: 25, // Realistic gas price
-      priorityFee: 3, // Priority fee in gwei
+      maxCompoundRatio: 1.08, 
+      minTradeSize: 30, 
+      maxTradeSize: 800,
+      gasPriceGwei: 25, 
+      priorityFee: 3, 
       
       // Market microstructure tracking
       orderBookImbalance: 0,
@@ -113,33 +108,33 @@ export class VolatilityGridStrategy {
       newsImpact: 0,
       
       // Risk management
-      maxPositionSize: 0.4, // Maximum 40% of balance in single position
-      maxTotalGrowth: 1.3, // Maximum 30% total growth
+      maxPositionSize: 0.4, 
+      maxTotalGrowth: 1.3, 
       realisticMode: true,
       
       // DeFi-specific parameters
-      mevSandwichProbability: 0.02, // 2% chance of MEV sandwich attack
-      frontrunProbability: 0.05, // 5% chance of frontrunning
+      mevSandwichProbability: 0.02, 
+      frontrunProbability: 0.05, 
       failedTransactionRate: 0.03, // 3% transaction failure rate
       networkCongestionFactor: 1.2, // Network congestion multiplier
       liquidityImpactFactor: 0.8, // Liquidity impact on large trades
-      priceImpactThreshold: 0.001, // 0.1% price impact threshold
+      priceImpactThreshold: 0.001, 
       maxSlippageDeviation: 0.005, // Max 0.5% slippage deviation
-      gasPriceVolatility: 0.3, // 30% gas price volatility
-      priorityFeeVolatility: 0.5, // 50% priority fee volatility
+      gasPriceVolatility: 0.3, 
+      priorityFeeVolatility: 0.5, 
       
       // Market condition probabilities
-      whaleActivityProbability: 0.1, // 10% chance of whale activity
+      whaleActivityProbability: 0.1, 
       newsImpactProbability: 0.05, // 5% chance of news impact
       technicalAnalysisPressure: 0.4, // 40% technical analysis pressure
-      sentimentShiftProbability: 0.08, // 8% chance of sentiment shift
-      regulatoryRiskProbability: 0.02, // 2% chance of regulatory impact
+      sentimentShiftProbability: 0.08, 
+      regulatoryRiskProbability: 0.02, 
       exchangeHackProbability: 0.001, // 0.1% chance of exchange hack
-      smartContractRiskProbability: 0.005, // 0.5% chance of smart contract issue
+      smartContractRiskProbability: 0.005, 
       oracleManipulationProbability: 0.01 // 1% chance of oracle manipulation
     };
 
-    console.log('🔧 Ultra-Realistic Grid configuration set:');
+    console.log('🔧 Grid configuration set:');
     console.log(`  Pair: ${this.config.baseTokenSymbol}/${this.config.quoteTokenSymbol}`);
     console.log(`  Grid levels: ${this.config.gridLevels}`);
     console.log(`  Price range: ${this.config.priceRange}%`);
