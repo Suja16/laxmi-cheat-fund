@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup-hypergraph": "node setup-hypergraph.js"
   },
   "dependencies": {
+    "@graphprotocol/hypergraph": "^0.7.3",
+    "@graphprotocol/hypergraph-react": "^0.7.3",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@rainbow-me/rainbowkit": "^2.2.8",

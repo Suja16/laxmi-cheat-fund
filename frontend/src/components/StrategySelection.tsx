@@ -7,6 +7,7 @@ import {
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 
+// The Strategy interface remains the same
 export interface Strategy {
   id: string;
   name: string;
@@ -17,6 +18,7 @@ export interface Strategy {
   minDeposit: string;
 }
 
+// The strategies array remains the same
 const strategies: Strategy[] = [
   {
     id: "grid",
@@ -70,19 +72,25 @@ const strategies: Strategy[] = [
   },
 ];
 
+// --- CHANGE 1: Update the props interface ---
+// We now accept the currently selected strategy from the parent.
 interface StrategySelectionProps {
+  selectedStrategy: Strategy | null;
   onStrategySelect: (strategy: Strategy) => void;
 }
 
 export default function StrategySelection({
+  // --- CHANGE 2: Destructure the new prop ---
+  selectedStrategy,
   onStrategySelect,
 }: StrategySelectionProps) {
-  const [selectedStrategy, setSelectedStrategy] = useState<Strategy | null>(
-    null
-  );
+  // --- CHANGE 3: Remove the internal state ---
+  // The component no longer has its own version of the selected strategy.
+  // const [selectedStrategy, setSelectedStrategy] = useState<Strategy | null>(null);
 
+  // --- CHANGE 4: Simplify the click handler ---
+  // It only needs to notify the parent of the user's choice.
   const handleStrategyClick = (strategy: Strategy) => {
-    setSelectedStrategy(strategy);
     onStrategySelect(strategy);
   };
 
@@ -101,6 +109,7 @@ export default function StrategySelection({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {strategies.map((strategy) => {
           const IconComponent = strategy.icon;
+          // The isSelected logic now correctly uses the prop from the parent
           const isSelected = selectedStrategy?.id === strategy.id;
 
           return (

@@ -4,14 +4,16 @@ import { WalletButton } from './WalletButton'
 import StrategySelection, { Strategy } from './StrategySelection'
 import RiskProfileSelection, { RiskProfile } from './RiskProfileSelection'
 import InvestmentInput from './InvestmentInput'
+import HypergraphDashboard from './HypergraphDashboard'
 import { 
   CheckCircleIcon, 
   ArrowRightIcon,
   ArrowLeftIcon,
-  RocketLaunchIcon
+  RocketLaunchIcon,
+  ChartBarIcon
 } from '@heroicons/react/24/outline'
 
-type FlowStep = 'strategy' | 'risk' | 'investment' | 'confirmation'
+type FlowStep = 'strategy' | 'risk' | 'investment' | 'confirmation' | 'dashboard'
 
 interface InvestmentData {
   strategy: Strategy | null
@@ -63,6 +65,7 @@ export default function StrategyFlow() {
     // Here you would typically integrate with your smart contract
     console.log('Starting trading with:', investmentData)
     alert('Trading started! (This is a demo - integrate with your smart contract)')
+    setCurrentStep('dashboard')
   }
 
   const getMinDeposit = () => {
@@ -105,7 +108,16 @@ export default function StrategyFlow() {
             </div>
             <span className="text-2xl font-bold text-white">Laxmi Cheat Fund</span>
           </div>
-          <WalletButton />
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setCurrentStep('dashboard')}
+              className="flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+            >
+              <ChartBarIcon className="w-5 h-5 text-yellow-400" />
+              <span className="text-white">Hypergraph Dashboard</span>
+            </button>
+            <WalletButton />
+          </div>
         </div>
       </nav>
 
@@ -154,6 +166,8 @@ export default function StrategyFlow() {
 
       {/* Main Content */}
       <div className="flex-1">
+        {currentStep === 'dashboard' && <HypergraphDashboard />}
+        
         {currentStep === 'strategy' && (
           <StrategySelection onStrategySelect={handleStrategySelect} />
         )}

@@ -46,7 +46,12 @@ function PrivateSpace() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createProject({ name: projectName, description: projectDescription });
+    const projectId = `project-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    createProject({ 
+      id: projectId,
+      name: projectName, 
+      description: projectDescription 
+    });
     setProjectName('');
     setProjectDescription('');
   };

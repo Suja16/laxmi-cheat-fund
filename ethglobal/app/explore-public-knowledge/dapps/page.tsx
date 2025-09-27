@@ -32,9 +32,9 @@ export default function ExploreDappsPage() {
 
             <div className="relative p-6">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-                {dapp.avatar?.[0]?.url ? (
+                {dapp.avatar ? (
                   <GraphImage
-                    src={dapp.avatar[0].url}
+                    src={dapp.avatar}
                     alt={`${dapp.name} avatar`}
                     className="w-full h-full object-cover"
                   />
