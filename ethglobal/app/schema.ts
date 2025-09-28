@@ -82,3 +82,60 @@ export class Report extends Entity.Class<Report>('Report')({
   timestamp: Type.String,
   includesTrade: Type.Relation(Trade),
 }) {}
+
+// Contract Transaction Schema
+export class ContractTransaction extends Entity.Class<ContractTransaction>('ContractTransaction')({
+  transactionHash: Type.String,
+  blockNumber: Type.Number,
+  blockTimestamp: Type.String,
+  from: Type.String,
+  to: Type.String,
+  value: Type.String,
+  gasUsed: Type.Number,
+  gasPrice: Type.String,
+  methodName: Type.optional(Type.String),
+  methodId: Type.optional(Type.String),
+  status: Type.String, // success, failed, pending
+  contractAddress: Type.String,
+  inputData: Type.optional(Type.String),
+  logs: Type.optional(Type.String), // JSON string of logs
+}) {}
+
+// Contract Event Schema
+export class ContractEvent extends Entity.Class<ContractEvent>('ContractEvent')({
+  eventName: Type.String,
+  eventSignature: Type.String,
+  transactionHash: Type.String,
+  blockNumber: Type.Number,
+  blockTimestamp: Type.String,
+  logIndex: Type.Number,
+  contractAddress: Type.String,
+  topics: Type.String, // JSON string of topics
+  data: Type.optional(Type.String),
+  decodedData: Type.optional(Type.String), // JSON string of decoded parameters
+}) {}
+
+// Contract State Schema
+export class ContractState extends Entity.Class<ContractState>('ContractState')({
+  contractAddress: Type.String,
+  blockNumber: Type.Number,
+  blockTimestamp: Type.String,
+  stateKey: Type.String,
+  stateValue: Type.String,
+  stateType: Type.String, // storage, balance, code, etc.
+}) {}
+
+// User Interaction Schema
+export class UserInteraction extends Entity.Class<UserInteraction>('UserInteraction')({
+  userAddress: Type.String,
+  transactionHash: Type.String,
+  blockNumber: Type.Number,
+  blockTimestamp: Type.String,
+  interactionType: Type.String, // call, send, receive, etc.
+  amount: Type.optional(Type.String),
+  tokenAddress: Type.optional(Type.String),
+  contractAddress: Type.String,
+  methodName: Type.optional(Type.String),
+  success: Type.Boolean,
+  gasUsed: Type.Number,
+}) {}
