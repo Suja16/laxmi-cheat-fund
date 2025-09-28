@@ -19,16 +19,6 @@ export interface Strategy {
 
 const strategies: Strategy[] = [
   {
-    id: "grid",
-    name: "Grid Trading",
-    description:
-      "Automated buy-low, sell-high strategy that places orders at predetermined price levels to capture market volatility.",
-    icon: ChartBarIcon,
-    apy: "18.5%",
-    riskLevel: "Medium",
-    minDeposit: "$100",
-  },
-  {
     id: "twap",
     name: "TWAP",
     description:
@@ -37,6 +27,16 @@ const strategies: Strategy[] = [
     apy: "12.3%",
     riskLevel: "Low",
     minDeposit: "$50",
+  },
+  {
+    id: "grid",
+    name: "Grid Trading",
+    description:
+      "Automated buy-low, sell-high strategy that places orders at predetermined price levels to capture market volatility.",
+    icon: ChartBarIcon,
+    apy: "18.5%",
+    riskLevel: "Medium",
+    minDeposit: "$100",
   },
   {
     id: "funding-arbitrage",

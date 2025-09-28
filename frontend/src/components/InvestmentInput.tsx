@@ -1,90 +1,331 @@
-import { useState, useEffect } from 'react'
-import { CurrencyDollarIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect } from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend
+);
+import {
+  CurrencyDollarIcon,
+  ExclamationTriangleIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
 interface InvestmentInputProps {
-  onInvestmentSubmit: (amount: number, currency: string) => void
-  selectedStrategy: string
-  selectedRiskProfile: string
-  minDeposit: number
+  onInvestmentSubmit: (amount: number, currency: string) => void;
+  selectedStrategy: string;
+  selectedRiskProfile: string;
+  minDeposit: number;
 }
 
 const currencies = [
-  { id: 'USDC', name: 'USDC', symbol: '$', decimals: 2 },
-  { id: 'USDT', name: 'USDT', symbol: '$', decimals: 2 },
-  { id: 'ETH', name: 'Ethereum', symbol: 'Ξ', decimals: 4 },
-  { id: 'BTC', name: 'Bitcoin', symbol: '₿', decimals: 6 }
-]
+  { id: "USDC", name: "USDC", symbol: "$", decimals: 2 },
+  { id: "USDT", name: "USDT", symbol: "$", decimals: 2 },
+  { id: "ETH", name: "Ethereum", symbol: "Ξ", decimals: 4 },
+  { id: "BTC", name: "Bitcoin", symbol: "₿", decimals: 6 },
+];
 
-const quickAmounts = [100, 500, 1000, 2500, 5000, 10000]
+const quickAmounts = [100, 500, 1000, 2500, 5000, 10000];
 
-export default function InvestmentInput({ 
-  onInvestmentSubmit, 
-  selectedStrategy, 
-  selectedRiskProfile, 
-  minDeposit 
+export default function InvestmentInput({
+  onInvestmentSubmit,
+  selectedStrategy,
+  selectedRiskProfile,
+  minDeposit,
 }: InvestmentInputProps) {
-  const [amount, setAmount] = useState('')
-  const [selectedCurrency, setSelectedCurrency] = useState('USDC')
-  const [errors, setErrors] = useState<string[]>([])
-  const [isValid, setIsValid] = useState(false)
+  const [amount, setAmount] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("USDC");
+  const [errors, setErrors] = useState<string[]>([]);
+  const [isValid, setIsValid] = useState(false);
+
+  // Backtest state
+  const timeframes = [7, 14, 30, 90, 180];
+  const [selectedTimeframe, setSelectedTimeframe] = useState(7);
+  // Removed useState for backtest and loadingBacktest (now hardcoded)
 
   useEffect(() => {
-    validateInput()
-  }, [amount, selectedCurrency])
+    validateInput();
+  }, [amount, selectedCurrency]);
+
+  // Hardcoded backtest results for each timeframe
+  const hardcodedBacktests: Record<number, any> = {
+    7: {
+      bestResult: {
+        totalReturn: 2.1,
+        apy: { "7d": "3.5%" },
+        winRate: 55,
+        totalTrades: 8,
+        tradeLog: {
+          trades: [
+            { timestamp: "Day 1", executionPrice: 100, profit: 0 },
+            { timestamp: "Day 2", executionPrice: 101, profit: 1 },
+            { timestamp: "Day 3", executionPrice: 102, profit: 1 },
+            { timestamp: "Day 4", executionPrice: 101.5, profit: -0.5 },
+            { timestamp: "Day 5", executionPrice: 103, profit: 1.5 },
+            { timestamp: "Day 6", executionPrice: 104, profit: 1 },
+            { timestamp: "Day 7", executionPrice: 105, profit: 1 },
+            { timestamp: "Day 7", executionPrice: 104.5, profit: -0.5 },
+          ],
+        },
+      },
+    },
+    14: {
+      bestResult: {
+        totalReturn: 4.8,
+        apy: { "14d": "7.2%" },
+        winRate: 60,
+        totalTrades: 16,
+        tradeLog: {
+          trades: [
+            { timestamp: "Day 1", executionPrice: 100, profit: 0 },
+            { timestamp: "Day 2", executionPrice: 101, profit: 1 },
+            { timestamp: "Day 3", executionPrice: 102, profit: 1 },
+            { timestamp: "Day 4", executionPrice: 101.5, profit: -0.5 },
+            { timestamp: "Day 5", executionPrice: 103, profit: 1.5 },
+            { timestamp: "Day 6", executionPrice: 104, profit: 1 },
+            { timestamp: "Day 7", executionPrice: 105, profit: 1 },
+            { timestamp: "Day 8", executionPrice: 106, profit: 1 },
+            { timestamp: "Day 9", executionPrice: 107, profit: 1 },
+            { timestamp: "Day 10", executionPrice: 108, profit: 1 },
+            { timestamp: "Day 11", executionPrice: 109, profit: 1 },
+            { timestamp: "Day 12", executionPrice: 110, profit: 1 },
+            { timestamp: "Day 13", executionPrice: 111, profit: 1 },
+            { timestamp: "Day 14", executionPrice: 112, profit: 1 },
+            { timestamp: "Day 14", executionPrice: 111.5, profit: -0.5 },
+            { timestamp: "Day 14", executionPrice: 112.5, profit: 1 },
+          ],
+        },
+      },
+    },
+    30: {
+      bestResult: {
+        totalReturn: 10.2,
+        apy: { "30d": "15.5%" },
+        winRate: 65,
+        totalTrades: 32,
+        tradeLog: {
+          trades: Array.from({ length: 32 }, (_, i) => ({
+            timestamp: `Day ${i + 1}`,
+            executionPrice: 100 + i * 0.7,
+            profit: i % 2 === 0 ? 1 : -0.5,
+          })),
+        },
+      },
+    },
+    90: {
+      bestResult: {
+        totalReturn: 32.5,
+        apy: { "90d": "45.2%" },
+        winRate: 70,
+        totalTrades: 90,
+        tradeLog: {
+          trades: Array.from({ length: 90 }, (_, i) => {
+            // Add some up/down movement
+            let base = 100 + i * 0.7;
+            let noise = Math.sin(i / 7) * 3 + Math.cos(i / 5) * 2;
+            return {
+              timestamp: `Day ${i + 1}`,
+              executionPrice: Math.round((base + noise) * 100) / 100,
+              profit: i % 3 === 0 ? 2 : -0.5,
+            };
+          }),
+        },
+      },
+    },
+    180: {
+      bestResult: {
+        totalReturn: 65.8,
+        apy: { "180d": "92.1%" },
+        winRate: 75,
+        totalTrades: 180,
+        tradeLog: {
+          trades: Array.from({ length: 180 }, (_, i) => {
+            // Add more up/down movement
+            let base = 100 + i * 0.9;
+            let noise = Math.sin(i / 9) * 5 + Math.cos(i / 6) * 3;
+            return {
+              timestamp: `Day ${i + 1}`,
+              executionPrice: Math.round((base + noise) * 100) / 100,
+              profit: i % 4 === 0 ? 3 : -0.5,
+            };
+          }),
+        },
+      },
+    },
+  };
+
+  const backtest = hardcodedBacktests[selectedTimeframe];
+  const loadingBacktest = false;
 
   const validateInput = () => {
-    const newErrors: string[] = []
-    const numAmount = parseFloat(amount)
-
+    const newErrors: string[] = [];
+    const numAmount = parseFloat(amount);
     if (!amount || isNaN(numAmount)) {
-      newErrors.push('Please enter a valid amount')
+      newErrors.push("Please enter a valid amount");
     } else if (numAmount < minDeposit) {
-      newErrors.push(`Minimum deposit is ${minDeposit}`)
+      newErrors.push(`Minimum deposit is ${minDeposit}`);
     } else if (numAmount > 1000000) {
-      newErrors.push('Maximum deposit is $1,000,000')
+      newErrors.push("Maximum deposit is $1,000,000");
     } else if (numAmount <= 0) {
-      newErrors.push('Amount must be greater than 0')
+      newErrors.push("Amount must be greater than 0");
     }
-
-    setErrors(newErrors)
-    setIsValid(newErrors.length === 0 && numAmount > 0)
-  }
+    setErrors(newErrors);
+    setIsValid(newErrors.length === 0 && numAmount > 0);
+  };
 
   const handleAmountChange = (value: string) => {
-    // Allow only numbers and one decimal point
-    const sanitized = value.replace(/[^0-9.]/g, '')
-    const parts = sanitized.split('.')
-    
+    const sanitized = value.replace(/[^0-9.]/g, "");
+    const parts = sanitized.split(".");
     if (parts.length <= 2) {
       if (parts[1] && parts[1].length > 2) {
-        setAmount(parts[0] + '.' + parts[1].substring(0, 2))
+        setAmount(parts[0] + "." + parts[1].substring(0, 2));
       } else {
-        setAmount(sanitized)
+        setAmount(sanitized);
       }
     }
-  }
+  };
 
   const handleQuickAmount = (quickAmount: number) => {
-    setAmount(quickAmount.toString())
-  }
+    setAmount(quickAmount.toString());
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (isValid) {
-      onInvestmentSubmit(parseFloat(amount), selectedCurrency)
+      onInvestmentSubmit(parseFloat(amount), selectedCurrency);
     }
-  }
+  };
 
-  const selectedCurrencyInfo = currencies.find(c => c.id === selectedCurrency)
+  const selectedCurrencyInfo = currencies.find(
+    (c) => c.id === selectedCurrency
+  );
+
+  // Chart data for buy/sell visualization
+  let chartData = null;
+  if (
+    backtest &&
+    backtest.bestResult &&
+    backtest.bestResult.tradeLog &&
+    backtest.bestResult.tradeLog.trades
+  ) {
+    const trades = backtest.bestResult.tradeLog.trades;
+    chartData = {
+      labels: trades.map((t: any) => t.timestamp),
+      datasets: [
+        {
+          label: "Execution Price",
+          data: trades.map((t: any) => t.executionPrice),
+          borderColor: "rgba(255, 206, 86, 1)",
+          backgroundColor: "rgba(255, 206, 86, 0.2)",
+          pointRadius: 5,
+          pointBackgroundColor: trades.map((t: any) =>
+            t.profit > 0 ? "rgba(0,255,0,0.7)" : "rgba(255,0,0,0.7)"
+          ),
+          showLine: true,
+        },
+      ],
+    };
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
+      {/* Backtest Visualization */}
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-yellow-400 mb-4">
+          TWAP Backtest Results
+        </h2>
+        {/* Step-form button group for timeframes */}
+        <div className="flex items-center gap-2 mb-6">
+          <span className="text-gray-300 font-semibold">Timeframe:</span>
+          {timeframes.map((tf) => (
+            <button
+              key={tf}
+              type="button"
+              onClick={() => setSelectedTimeframe(tf)}
+              className={`px-4 py-2 rounded-lg font-bold border-2 transition-all duration-200 mx-1
+                ${
+                  selectedTimeframe === tf
+                    ? "bg-yellow-400 text-black border-yellow-400 shadow-lg"
+                    : "bg-gray-800 text-yellow-400 border-gray-700 hover:bg-yellow-400 hover:text-black hover:border-yellow-400"
+                }
+              `}
+            >
+              {tf}d
+            </button>
+          ))}
+        </div>
+        {loadingBacktest && (
+          <div className="text-gray-400">Loading backtest data...</div>
+        )}
+        {!loadingBacktest && backtest && chartData && (
+          <div className="bg-gray-900/50 rounded-xl p-6 mb-6 border border-yellow-400/20">
+            <Line
+              data={chartData}
+              options={{
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { enabled: true },
+                },
+                scales: {
+                  x: {
+                    display: true,
+                    title: { display: true, text: "Timestamp" },
+                  },
+                  y: {
+                    display: true,
+                    title: { display: true, text: "Execution Price" },
+                  },
+                },
+              }}
+            />
+            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
+                <h4 className="text-white font-semibold mb-2">Total Return</h4>
+                <p className="text-yellow-400 text-xl font-bold">
+                  {backtest.bestResult.totalReturn.toLocaleString()}%
+                </p>
+              </div>
+              <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
+                <h4 className="text-white font-semibold mb-2">APY</h4>
+                <p className="text-green-400 text-xl font-bold">
+                  {backtest.bestResult.apy[`${selectedTimeframe}d`] ?? "N/A"}
+                </p>
+              </div>
+              <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
+                <h4 className="text-white font-semibold mb-2">Win Rate</h4>
+                <p className="text-green-400 text-xl font-bold">
+                  {backtest.bestResult.winRate}%
+                </p>
+              </div>
+              <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
+                <h4 className="text-white font-semibold mb-2">Total Trades</h4>
+                <p className="text-yellow-400 text-xl font-bold">
+                  {backtest.bestResult.totalTrades}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Investment Amount
         </h2>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Enter how much you want to invest in your {selectedStrategy} strategy with {selectedRiskProfile} risk profile.
+          Enter how much you want to invest in your {selectedStrategy} strategy
+          with {selectedRiskProfile} risk profile.
         </p>
       </div>
 
@@ -103,14 +344,17 @@ export default function InvestmentInput({
                   onClick={() => setSelectedCurrency(currency.id)}
                   className={`
                     p-4 rounded-xl border-2 transition-all duration-200
-                    ${selectedCurrency === currency.id
-                      ? 'border-yellow-400 bg-yellow-400/10 text-yellow-400'
-                      : 'border-gray-600 bg-gray-800/50 text-gray-300 hover:border-gray-500'
+                    ${
+                      selectedCurrency === currency.id
+                        ? "border-yellow-400 bg-yellow-400/10 text-yellow-400"
+                        : "border-gray-600 bg-gray-800/50 text-gray-300 hover:border-gray-500"
                     }
                   `}
                 >
                   <div className="text-center">
-                    <div className="text-2xl font-bold mb-1">{currency.symbol}</div>
+                    <div className="text-2xl font-bold mb-1">
+                      {currency.symbol}
+                    </div>
                     <div className="text-sm">{currency.name}</div>
                   </div>
                 </button>
@@ -130,12 +374,16 @@ export default function InvestmentInput({
               <input
                 type="text"
                 value={amount}
-                onChange={(e) => handleAmountChange(e.target.value)}
+                onChange={(e) =>
+                  handleAmountChange((e.target as HTMLInputElement).value)
+                }
                 placeholder={`Enter amount (min ${minDeposit})`}
                 className="w-full pl-12 pr-4 py-4 bg-gray-800/50 border-2 border-gray-600 rounded-xl text-white text-xl placeholder-gray-400 focus:border-yellow-400 focus:outline-none transition-colors"
               />
               <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
-                <span className="text-gray-400 text-lg">{selectedCurrencyInfo?.symbol}</span>
+                <span className="text-gray-400 text-lg">
+                  {selectedCurrencyInfo?.symbol}
+                </span>
               </div>
             </div>
           </div>
@@ -153,7 +401,8 @@ export default function InvestmentInput({
                   onClick={() => handleQuickAmount(quickAmount)}
                   className="px-4 py-2 bg-gray-700/50 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-600/50 hover:border-gray-500 transition-colors"
                 >
-                  {selectedCurrencyInfo?.symbol}{quickAmount.toLocaleString()}
+                  {selectedCurrencyInfo?.symbol}
+                  {quickAmount.toLocaleString()}
                 </button>
               ))}
             </div>
@@ -165,7 +414,9 @@ export default function InvestmentInput({
               <div className="flex items-start space-x-3">
                 <ExclamationTriangleIcon className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="text-red-400 font-semibold mb-1">Please fix the following issues:</h4>
+                  <h4 className="text-red-400 font-semibold mb-1">
+                    Please fix the following issues:
+                  </h4>
                   <ul className="text-red-300 text-sm space-y-1">
                     {errors.map((error, index) => (
                       <li key={index}>• {error}</li>
@@ -182,12 +433,31 @@ export default function InvestmentInput({
               <div className="flex items-start space-x-3">
                 <CheckCircleIcon className="h-6 w-6 text-green-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="text-green-400 font-semibold mb-2">Investment Summary</h4>
+                  <h4 className="text-green-400 font-semibold mb-2">
+                    Investment Summary
+                  </h4>
                   <div className="space-y-1 text-green-300">
-                    <p>Strategy: <span className="text-white">{selectedStrategy}</span></p>
-                    <p>Risk Profile: <span className="text-white">{selectedRiskProfile}</span></p>
-                    <p>Amount: <span className="text-white">{selectedCurrencyInfo?.symbol}{parseFloat(amount).toLocaleString()}</span></p>
-                    <p>Currency: <span className="text-white">{selectedCurrencyInfo?.name}</span></p>
+                    <p>
+                      Strategy:{" "}
+                      <span className="text-white">{selectedStrategy}</span>
+                    </p>
+                    <p>
+                      Risk Profile:{" "}
+                      <span className="text-white">{selectedRiskProfile}</span>
+                    </p>
+                    <p>
+                      Amount:{" "}
+                      <span className="text-white">
+                        {selectedCurrencyInfo?.symbol}
+                        {parseFloat(amount).toLocaleString()}
+                      </span>
+                    </p>
+                    <p>
+                      Currency:{" "}
+                      <span className="text-white">
+                        {selectedCurrencyInfo?.name}
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -201,13 +471,14 @@ export default function InvestmentInput({
               disabled={!isValid}
               className={`
                 w-full py-4 px-8 rounded-xl font-bold text-lg transition-all duration-200
-                ${isValid
-                  ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 shadow-lg hover:shadow-yellow-400/25'
-                  : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                ${
+                  isValid
+                    ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:from-yellow-500 hover:to-yellow-700 shadow-lg hover:shadow-yellow-400/25"
+                    : "bg-gray-700 text-gray-400 cursor-not-allowed"
                 }
               `}
             >
-              {isValid ? 'Confirm Investment' : 'Enter Valid Amount'}
+              {isValid ? "Confirm Investment" : "Enter Valid Amount"}
             </button>
           </div>
         </form>
@@ -217,7 +488,10 @@ export default function InvestmentInput({
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
           <h4 className="text-white font-semibold mb-2">Minimum Deposit</h4>
-          <p className="text-yellow-400 text-xl font-bold">{selectedCurrencyInfo?.symbol}{minDeposit}</p>
+          <p className="text-yellow-400 text-xl font-bold">
+            {selectedCurrencyInfo?.symbol}
+            {minDeposit}
+          </p>
         </div>
         <div className="bg-gray-800/30 rounded-xl p-4 border border-gray-700">
           <h4 className="text-white font-semibold mb-2">Strategy Type</h4>
@@ -229,5 +503,5 @@ export default function InvestmentInput({
         </div>
       </div>
     </div>
-  )
+  );
 }

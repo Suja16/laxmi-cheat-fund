@@ -1,0 +1,24 @@
+{
+  "totalTests": 75,
+  "avgReturn": 70614.67175377008,
+  "bestReturn": 539703.302813657,
+  "worstReturn": 2.445450762209475,
+  "avgTrades": 8.8,
+  "avgSharpeRatio": 0.0501154852800015,
+  "avgMaxDrawdown": 55.38004536597259,
+  "avgWinRate": 53.15218855218855,
+  "avgAPY": {
+    "7d": null,
+    "14d": null,
+    "30d": null,
+    "90d": null,
+    "180d": null
+  },
+  "bestAPY": {
+    "7d": null,
+    "14d": null,
+    "30d": null,
+    "90d": null,
+    "180d": null
+  }
+}
