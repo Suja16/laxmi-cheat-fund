@@ -1,13 +1,11 @@
-import { useState } from "react";
-import { useAccount } from "wagmi";
-import { WalletButton } from "./WalletButton.js";
-import StrategySelection from "./StrategySelection.js";
-import type { Strategy } from "./StrategySelection.js";
-import RiskProfileSelection from "./RiskProfileSelection.js";
-import type { RiskProfile } from "./RiskProfileSelection.js";
-import InvestmentInput from "./InvestmentInput.js";
-import {
-  CheckCircleIcon,
+import React, { useState } from 'react'
+import { useAccount } from 'wagmi'
+import { WalletButton } from './WalletButton'
+import StrategySelection, { Strategy } from './StrategySelection'
+import RiskProfileSelection, { RiskProfile } from './RiskProfileSelection'
+import InvestmentInput from './InvestmentInput'
+import { 
+  CheckCircleIcon, 
   ArrowRightIcon,
   ArrowLeftIcon,
   RocketLaunchIcon,
@@ -23,8 +21,10 @@ interface InvestmentData {
 }
 
 export default function StrategyFlow() {
-  const { isConnected } = useAccount();
-  const [currentStep, setCurrentStep] = useState<FlowStep>("strategy");
+  const { isConnected, address } = useAccount()
+  const [currentStep, setCurrentStep] = useState<FlowStep>('strategy')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [investmentData, setInvestmentData] = useState<InvestmentData>({
     strategy: null,
     riskProfile: null,
@@ -61,13 +61,92 @@ export default function StrategyFlow() {
     }
   };
 
-  const handleStartTrading = () => {
-    // Here you would typically integrate with your smart contract
-    console.log("Starting trading with:", investmentData);
-    alert(
-      "Trading started! (This is a demo - integrate with your smart contract)"
-    );
-  };
+  const handleStartTrading = async () => {
+    if (!address) {
+      setError('Wallet address not found')
+      return
+    }
+
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      // Map strategy to TWAP parameters
+      const getTwapParams = () => {
+        const strategy = investmentData.strategy?.id
+        const amount = investmentData.amount.toString()
+        
+        // Default parameters - you can customize these based on strategy
+        const baseParams = {
+          fromToken: "0x4200000000000000000000000000000000000006", // WETH
+          toToken: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", // USDC
+          totalAmount: amount,
+          userAddress: address
+        }
+
+        // Strategy-specific parameters
+        switch (strategy) {
+          case 'twap':
+            return {
+              ...baseParams,
+              numberOfOrders: 10,
+              intervalMinutes: 60,
+              executionWindow: 30,
+              slippageTolerance: 0.5
+            }
+          case 'grid':
+            return {
+              ...baseParams,
+              numberOfOrders: 20,
+              intervalMinutes: 30,
+              executionWindow: 15,
+              slippageTolerance: 0.3
+            }
+          case 'dca-hodl':
+            return {
+              ...baseParams,
+              numberOfOrders: 5,
+              intervalMinutes: 1440, // 24 hours
+              executionWindow: 60,
+              slippageTolerance: 1.0
+            }
+          default:
+            return {
+              ...baseParams,
+              numberOfOrders: 10,
+              intervalMinutes: 60,
+              executionWindow: 30,
+              slippageTolerance: 0.5
+            }
+        }
+      }
+
+      const twapParams = getTwapParams()
+      
+      const response = await fetch('http://localhost:3000/start-twap', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(twapParams)
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to start TWAP trading')
+      }
+
+      const result = await response.json()
+      console.log('TWAP trading started successfully:', result)
+      alert('TWAP trading strategy started successfully!')
+      
+    } catch (err) {
+      console.error('Error starting TWAP trading:', err)
+      setError(err instanceof Error ? err.message : 'Failed to start trading')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const getMinDeposit = () => {
     if (!investmentData.strategy) return 100;
@@ -291,19 +370,36 @@ export default function StrategyFlow() {
               </div>
             </div>
 
+            {error && (
+              <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-xl">
+                <p className="text-red-400 text-center">{error}</p>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleBack}
-                className="px-8 py-4 border-2 border-gray-600 text-gray-300 font-semibold text-lg rounded-xl hover:bg-gray-800/50 transition-all duration-200"
+                disabled={isLoading}
+                className="px-8 py-4 border-2 border-gray-600 text-gray-300 font-semibold text-lg rounded-xl hover:bg-gray-800/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Back to Edit
               </button>
               <button
                 onClick={handleStartTrading}
-                className="px-8 py-4 bg-gradient-to-r from-green-400 to-green-600 text-black font-bold text-lg rounded-xl hover:from-green-500 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-green-400/25 flex items-center space-x-2"
+                disabled={isLoading}
+                className="px-8 py-4 bg-gradient-to-r from-green-400 to-green-600 text-black font-bold text-lg rounded-xl hover:from-green-500 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-green-400/25 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <RocketLaunchIcon className="w-5 h-5" />
-                <span>Start Trading Now</span>
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                    <span>Starting...</span>
+                  </>
+                ) : (
+                  <>
+                    <RocketLaunchIcon className="w-5 h-5" />
+                    <span>Start Trading Now</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

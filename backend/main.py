@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify, Response, request
 import os
 import sys
 from flask_cors import CORS
@@ -39,6 +39,41 @@ def getPrices():
 @app.route("/get_prices")
 def stream_prices():
     return Response(getPrices(), content_type='text/event-stream')
+
+# @app.route('/start-twap', methods=['POST'])
+# def start_twap():
+#     try:
+#         data = request.get_json()
+        
+#         # Validate required fields
+#         required_fields = ['fromToken', 'toToken', 'totalAmount', 'numberOfOrders', 
+#                           'intervalMinutes', 'executionWindow', 'slippageTolerance', 'userAddress']
+        
+#         for field in required_fields:
+#             if field not in data:
+#                 return jsonify({'error': f'Missing required field: {field}'}), 400
+        
+#         # Here you would typically integrate with your smart contract or trading logic
+#         # For now, we'll just return a success response
+#         response = {
+#             'success': True,
+#             'message': 'TWAP trading strategy started successfully',
+#             'data': {
+#                 'fromToken': data['fromToken'],
+#                 'toToken': data['toToken'],
+#                 'totalAmount': data['totalAmount'],
+#                 'numberOfOrders': data['numberOfOrders'],
+#                 'intervalMinutes': data['intervalMinutes'],
+#                 'executionWindow': data['executionWindow'],
+#                 'slippageTolerance': data['slippageTolerance'],
+#                 'userAddress': data['userAddress']
+#             }
+#         }
+        
+#         return jsonify(response), 200
+        
+#     except Exception as e:
+#         return jsonify({'error': f'Failed to start TWAP trading: {str(e)}'}), 500
 
 
 
